@@ -14,4 +14,4 @@ The web app will start by prompting the user to sign up and login. Once this pro
 ![Proposal Flowchart](https://code2flow.com/vQxmbN.png)
 
 ## Functionality
-The web app will have multiple input fields that will take in text or a URL. Signup/login procedures will be handled by the comp426-backend after we incorporate its functionality into our project. We will use the SMMRY API to summarize the given input.
+The web app will have multiple input fields that will take in text or a URL. Signup/login procedures will be handled by [a backend server](https://github.com/cgburgess/comp426-backend) after we incorporate its functionality into our project. We will use the SMMRY API to summarize the given input.

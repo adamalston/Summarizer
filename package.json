@@ -1,0 +1,22 @@
+{
+  "name": "smmrzr",
+  "version": "1.0.0",
+  "description": "Smmrzr is a web application that will allow a user to summarize any text composition whether that be a news article or a story.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamalston/smmrzr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adamalston/smmrzr/issues"
+  },
+  "homepage": "https://github.com/adamalston/smmrzr#readme",
+  "dependencies": {
+    "bulma": "^0.8.0"
+  }
+}

@@ -1,4 +1,4 @@
-# Smmrzr
+# Summarizer
 
 Smmrzr is a web application that will allow a user to summarize any text composition whether that be a news article or a story.
 

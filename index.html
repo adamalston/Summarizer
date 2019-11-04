@@ -3,23 +3,33 @@
     <head>
         <meta charset="UTF-8">
         <link href="style.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css"/>
+        <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css"/>
 
         <script></script>
         <title>Summarizer</title>
     </head>
     
     <body>
-        <section class="hero is-info">
-            <div class="hero-head">
-                <nav class="navbar">
-                    <div class="container">
-                        
+        <div id="root">
+                <section class="hero is-dark">
+                    <div class="hero-body">
+                    <div class="container index-container">
+                        <div class="level">
+                        <div class="level-left" style="flex-grow: 1;">
+                            <div style="flex-grow: 1;"><img class="index-logo" src="lightbulb128x128.png" alt="Lightbulb">
+                            <h1 class="title">Summarizer</h1>
+                            <h2 class="subtitle">Get to the point quicker</h2>
+                            </div>
+                        </div>
+                        <div class="level-right"><a class="button is-white is-medium is-outlined" href="signup.html" style="margin-right: 0.8em;">
+                            <span class="icon"><i class="fas fa-user-plus"> </i></span>&nbsp;&nbsp;&nbsp;Signup</a>
+                            <a class="button is-white is-medium is-outlined" href="login.html"><span class="icon"><i class="fas fa-sign-in-alt"> </i></span>&nbsp;&nbsp;&nbsp;Login</a></div>
+                        </div>
                     </div>
-                </nav>
-            </div>
-        </section>
+                    </div>
+                </section>
         <h1>Summarizer</h1>
+        
         <p><a href="signup.html">signup</a></p>
         <p><a href="login.html">login</a></p>
     </body>

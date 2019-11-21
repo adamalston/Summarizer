@@ -19,5 +19,3 @@ The web app will have multiple input fields that will take in text or a URL.
 Signup/login procedures will be handled by a [backend server](https://github.com/cgburgess/comp426-backend) after we incorporate its functionality into our project. 
 
 [SMMRY API](https://smmry.com/api) used to summarize the given input.
-
-[Icon](https://www.iconfinder.com/icons/4288592/bulb_idea_knowledge_light_read_thinking_icon).

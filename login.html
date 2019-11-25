@@ -1,60 +1,53 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
-</head>
-
-<body>
-    <section class="hero is-dark is-fullheight">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <div class="column is-4 is-offset-4">
-                    
-                    <h3 class="title has-text-white">Login</h3>
-                    <hr class="login-hr">
-                    <p class="subtitle has-text-white">Please login to proceed.</p>
-                    
-                    <figure class="avatar">
-                            <img src="lightbulb128x128.png" alt="Lightbulb">
-                    </figure>
-
-                    <br>
-                    <div class="box">
-                        <form>
-                            <div class="field">
-                                <div class="control">
-                                    <input class="input is-large is-dark" type="username" placeholder="Username" autofocus="">
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <div class="control">
-                                    <input class="input is-large is-dark" type="password" placeholder="Password">
-                                </div>
-                            </div>
-
-                            <button class="button is-block is-link is-outlined is-large is-fullwidth">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
-                        </form>
-                    </div>
-                    <p class="has-text-grey">
-                        <a href="signup.html">Sign Up</a> &nbsp;·&nbsp;
-                        <a href="../">Forgot Password</a>
-                    </p>
-                </div>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login</title>
+        <link rel="shortcut icon" href="Slogo32x32.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <!-- Bulma Version 0.8.x-->
+        <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+        <link rel="stylesheet" type="text/css" href="../css/hero.css">
+        <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+    </head>
+    <body>
+        <div id="root">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <img src="Slogo32x32.png" width="32" height="32">
+                </a>
             </div>
-        </div>
-    </section>
-    <script async type="text/javascript" src="../js/bulma.js"></script>
-</body>
 
+            <main class="login-page is-centered">
+                <section class="login-section">
+                    <header class="login-header content">
+                        <p>Please login below</p>
+                    </header>
+                    <form class="login-form">
+                        <div class="field">
+                            <label class="label">Email Address</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input is-success" type="text" placeholder="Email Address" autocomplete="disabled" value="">
+                            </div>
+                            <p class="help is-success">This field is valid</p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input is-success" type="password" placeholder="Password" autocomplete="disabled" value="">
+                            </div>
+                            <p class="help is-success">This field is valid</p>
+                        </div>
+                        <div class="field is-grouped">
+                            <div class="control"><button type="submit" class="button is-link">Log in</button></div>
+                            <div class="control"><a href="/login"><button class="button btn-is-link">First time? Create an account</button></a><a href="/reset"></a></div>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </body>
 </html>

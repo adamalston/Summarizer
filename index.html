@@ -5,9 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Summarizer</title>
-        <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="shortcut icon" href="Slogo32x32.png" type="image/x-icon">
         <!-- Bulma Version 0.8.x-->
         <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
         <link rel="stylesheet" type="text/css" href="../css/hero.css">
@@ -19,21 +17,15 @@
             <div class="hero-head">
                 <nav class="navbar" role="navigation" aria-label="main navigation">
                     <div class="navbar-brand">
-                        <a class="navbar-item" href="https://bulma.io">
+                        <a class="navbar-item" href="index.html">
                             <img src="Slogo32x32.png" width="32" height="32">
-                        </a>
-                        
-                        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
                         </a>
                     </div>
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <div class="buttons">
-                                <a class="button is-light" href="signup.html"><span>Signup</span></a>
-                                <a class="button is-light" href="login.html"><span>Login</span></a>
+                                <a class="button is-light" href="signup.html"><span><i class=""></i>Signup</span></a>
+                                <a class="button is-light" href="login.html"><span><i class=""></i>Login</span></a>
                                 <a class="button is-light" href="https://github.com/adamalston/Summarizer"><span>View Source</span></a>
                             </div>
                         </div>
@@ -47,13 +39,33 @@
                 </div>
             </div>
         </section>
-        <div class="box cta">
-            <p class="has-text-centered">
-                <textarea class="textarea has-text-centered" placeholder="Enter URL" rows="1"></textarea>
-            </p>
+        <div class="box is-centered">
+            <div class="field has-addons is-centered">
+                <p class="control">
+                    <input class="input is-info" type="text" placeholder="URL" rows="1">
+                </p>
+                <p class="control">
+                    <a class="button is-info">Summarize</a>
+                </p>
+            </div>
         </div>
+
         <section class="container">
-            <div class="columns features">
+            <div class="columns features is-multiline is-centered">
+                <div class="column is-12">
+                    <div class="card is-shady">
+                        <div class="card-image has-text-centered">
+                            <span>logo of source</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <h4>Article  Title</h4>
+                                <p>Summary current</p>
+                                <p><a href="#">Source</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="column is-4">
                     <div class="card is-shady">
                         <div class="card-image has-text-centered">

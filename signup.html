@@ -4,51 +4,70 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Signup</title>
+        <title>Sign Up</title>
         <link rel="shortcut icon" href="Slogo32x32.png" type="image/x-icon">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-        <!-- Bulma Version 0.8.x-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
         <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
         <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+        <link rel="stylesheet" href="styles.css" />
         <script src="/node_modules/axios/dist/axios.min.js"></script>
         <script src="/node_modules/jquery/dist/jquery.min.js"></script>
         <script type="module" src="controller.js"></script>
     </head>
     <body>
         <div id="root">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="index.html">
-                    <img src="Slogo32x32.png" width="32" height="32">
-                </a>
-            </div>
 
-            <main class="signup-page is-centered">
-                <section class="signup-section">
-                    <header class="signup-header content">
-                        <p>Please Signup below</p>
-                    </header>
-                    <form class="signup-form">
-                        <div class="field">
-                            <label class="label">Email Address</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input id="newName" class="input is-success" type="text" placeholder="New Email Address" autocomplete="disabled" value="">
+            <div class="hero is-dark is-bold fullheight-hero">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="index.html">
+                        <img src="Slogo32x32.png" width="32" height="32">
+                    </a>
+                </div>
+
+                <div class="hero-body">                 
+                    <div class="columns is-centered">
+                        <div class="column is-half">
+                            <div class="notification is-light">
+                                <header class="signup-header">
+                                        <h1 class="title has-text-centered">Welcome to <img class="" src="Slogo32x32.png" alt="Summarizer Logo">ummarizer</h1>
+                                        <p class="subtitle has-text-centered">Create a Summarizer account by filling out this form.</p>
+                                </header>
+                                
+                                <div class="field">
+                                    <label class="label">Username</label>
+                                    <p class="control has-icons-left has-icons-right">
+                                        <input class="input" type="text" placeholder="New Username" id="newName">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-id-badge"></i>
+                                        </span>
+                                    </p>
+                                </div>
+                                
+                                <div class="field">
+                                    <label class="label">Password</label>
+                                    <p class="control has-icons-left">
+                                        <input class="input" type="password" placeholder="New Password" id="newPass">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </p>
+                                </div>
+                                
+                                <div class="field is-grouped">
+                                    <div class="control">
+                                        <button type="submit" class="button is-info" id="signupButton">Create Account</button>
+                                    </div>
+                                    <div class="control">
+                                        <a href="login.html">
+                                            <button class="button">Already have an account? Log in</button>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="help is-success">This field is valid</p>
                         </div>
-                        <div class="field">
-                            <label class="label">Password</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input id="newPass" class="input is-success" type="password" placeholder="New Password" autocomplete="disabled" value="">
-                            </div>
-                            <p class="help is-success">This field is valid</p>
-                        </div>
-                        <div class="field is-grouped">
-                            <div class="control"><button id="signupButton" type="submit" class="button is-link">Signup!</button></div>
-                        </div>
-                    </form>
-                </section>
-            </main>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

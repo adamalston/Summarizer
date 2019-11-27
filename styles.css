@@ -2,3 +2,43 @@
     height: 100vh;
     position: relative;
 }
+
+.notification {
+    background-color: rgb(10,10,11);
+    color: white;
+}
+
+.input {
+    background-color: rgb(24,26,27);
+    border-color: gray;
+    color:white;
+}
+
+.label {
+    color: white;
+}
+
+.fas {
+    color: #0099ff;
+}
+
+.card {
+    background-color: gray;
+}
+
+::placeholder {
+    color: lime;
+}
+
+
+#redir-button {
+    background-color: rgb(24,26,27);
+    border-color: gray;
+    color: white;
+}
+
+#signupButton, #loginButton, #summarizeButton {
+    background-color: #0099ff;
+    border-color: #0099ff;
+    color: white;
+}

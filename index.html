@@ -6,9 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Summarizer</title>
         <link rel="shortcut icon" href="Slogo32x32.png" type="image/x-icon">
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
         <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
         <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
         <script src="/node_modules/axios/dist/axios.min.js"></script>
         <script src="/node_modules/jquery/dist/jquery.min.js"></script>
         <script type="module" src="controller.js"></script>
@@ -24,10 +25,10 @@
                     </div>
                     <div class="navbar-end">
                         <div class="navbar-item">
-                            <div class="buttons">
-                                <a class="button is-light" href="signup.html"><span><i class=""></i>Signup</span></a>
-                                <a class="button is-light" href="login.html"><span><i class=""></i>Login</span></a>
-                                <a class="button is-light" href="https://github.com/adamalston/Summarizer"><span>View Source</span></a>
+                            <div class="buttons is-right">
+                                <a class="button" href="signup.html" id="redir-button"><span><i class="fas fa-user-plus"></i> Sign Up</span></a>
+                                <a class="button" href="login.html" id="redir-button"><span><i class="fas fa-sign-in-alt"></i> Log In</span></a>
+                                <a class="button" href="https://github.com/adamalston/Summarizer" id="redir-button"><span><i class="fas fa-code"></i> View Source</span></a>
                             </div>
                         </div>
                     </div>
@@ -40,13 +41,14 @@
                 </div>
             </div>
         </section>
-        <div class="box is-centered">
-            <div class="field has-addons is-centered">
+
+        <div class="box">
+            <div class="field has-addons has-addons-centered">
                 <p class="control">
-                    <input class="input is-info" type="text" placeholder="URL" rows="1">
+                    <input class="input" type="text" placeholder="URL" rows="1">
                 </p>
                 <p class="control">
-                    <a class="button is-info" id="summarizeButton">Summarize</a>
+                    <a class="button" id="summarizeButton">Summarize</a>
                 </p>
             </div>
         </div>

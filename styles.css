@@ -19,7 +19,7 @@
 }
 
 .fas {
-    color: #0099ff;
+    color: #009fff;
 }
 
 .card {
@@ -38,7 +38,7 @@
 }
 
 #signupButton, #loginButton, #summarizeButton {
-    background-color: #0099ff;
-    border-color: #0099ff;
+    background-color: #009fff;
+    border-color: #009fff;
     color: white;
 }

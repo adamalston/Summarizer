@@ -3,6 +3,7 @@
     position: relative;
 }
 
+<<<<<<< Updated upstream
 .notification {
     background-color: rgb(10,10,11);
     color: white;
@@ -41,4 +42,9 @@
     background-color: #009fff;
     border-color: #009fff;
     color: white;
+=======
+.accountError,.signinError {
+    color: red;
+    padding-bottom: 10px;
+>>>>>>> Stashed changes
 }

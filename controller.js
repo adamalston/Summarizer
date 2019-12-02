@@ -4,12 +4,27 @@
  * How to make an API request to SMMRY
  * 
  */
+function hideElements() {
+    $(".accountError").hide();
+    $(".signinError").hide();
+}
+const smmryURL = axios.create({
+    baseURL: "https://api.smmry.com/SM_API_KEY=9720744B0C"
+});
+
+const accountRoot = axios.create({
+    baseURL: "http://localhost:3000/account"
+});
+
 function addButtonListeners() {
     $("#signupButton").on('click', () => {
-        // add an async method to create account
+        hideElements();
+        postCredentials();
+
     });
     $("#loginButton").on('click', () => {
-        // add an async method to authenticate user
+        hideElements();
+        postLogin();
     });
     $("#summarizeButton").on('click', () => {
         // add an async method to get the summary
@@ -17,23 +32,31 @@ function addButtonListeners() {
 }
 
 async function postCredentials() {
-    let newName = $("#newName").val();
-    let newPass = $("#newPass").val();
-
-    const postcred = await axios ({
-        method: "post",
-        url: "http://localhost:3000/account/create",
-        body: {
-            "name": newName,
-            "pass": newPass,
-            "data": {
-
-            },
-        },
+    try {
+        const result = await accountRoot.post(`/create`,{
+        "name": $("#newName").val(),
+        "pass": $("#newPass").val(),
     });
+        window.location.replace("login.html");
+    } catch (error) {
+        $(".accountError").show();
+    } 
+}
+
+async function postLogin() {
+    try {
+        const result = await accountRoot.post(`/login`,{
+        "name": $("#userName").val(),
+        "pass": $("#pass").val(),
+    });
+        window.location.replace("index.html");
+    } catch (error) {
+        $(".signinError").show();
+    }
 }
 
 $(document).ready(() => {
+    hideElements();
     addButtonListeners();
 });
 

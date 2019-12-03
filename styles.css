@@ -23,7 +23,12 @@
 }
 
 .card {
-    background-color: gray;
+    background-color: black;
+    color: white;
+}
+
+.signupError, .loginError, .summarizeError {
+    color: red;
 }
 
 #redirButton {

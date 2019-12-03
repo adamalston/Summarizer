@@ -10,8 +10,8 @@ function hideElements() {
     $(".signupError").hide();
     $(".loginError").hide();
     $(".summarizeError").hide();
-
 }
+
 const smmryURL = axios.create({
     baseURL: "https://api.smmry.com/SM_API_KEY=9720744B0C"
 });
@@ -65,6 +65,12 @@ function addButtonListeners() {
             summarize();
         }, 250)
     });
+
+    $(".navbar-burger").click(function() {
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+    });
 }
 
 async function postCredentials() {
@@ -101,7 +107,9 @@ async function postLogin() {
 
 async function summarize() {
     try {
+        const result = await smmryURL.post(`/login`,{
 
+        });
     } catch (error) {
         $(".summarizeError").show();
     }
@@ -110,12 +118,6 @@ async function summarize() {
 $(document).ready(() => {
     hideElements();
     addButtonListeners();
-
-    $(".navbar-burger").click(function() {
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        $(".navbar-burger").toggleClass("is-active");
-        $(".navbar-menu").toggleClass("is-active");
-    });
 });
 
 

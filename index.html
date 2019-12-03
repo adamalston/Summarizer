@@ -17,7 +17,6 @@
     <body>
         <section class="hero is-dark is-small is-bold">
             <div class="hero-head">
-
                 <nav class="navbar" role="navigation" aria-label="main navigation">
                     <div class="navbar-brand">
                         <a class="navbar-item" href="index.html">
@@ -55,14 +54,17 @@
 
         <div class="box">
             <div class="field has-addons has-addons-centered">
-                <div class="control is-expanded">
+                <div class="control has-icons-left is-expanded">
                     <input class="input" type="text" placeholder="URL">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-link"></i>
+                    </span>
                 </div>
                 <div class="control">
                     <a class="button" id="summarizeButton">Summarize</a>
                 </div>
             </div>
-            <p class="summarizeError help is-danger">Unable to create summary. Try a different URL.</p>
+            <p class="summarizeError help">Unable to create summary. Try a different URL.</p>
         </div>
 
         <section class="container">

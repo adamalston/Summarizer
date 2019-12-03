@@ -1,3 +1,8 @@
+.fullheight-hero {
+    height: 100vh;
+    position: relative;
+}
+
 .notification {
     background-color: rgb(10,10,11);
     color: white;
@@ -19,11 +24,6 @@
 
 .card {
     background-color: gray;
-}
-
-.signupError, .loginError {
-    color: red;
-    padding-bottom: 10px;
 }
 
 #redirButton {

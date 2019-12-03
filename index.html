@@ -15,20 +15,31 @@
         <script type="module" src="controller.js"></script>
     </head>
     <body>
-        <section class="hero is-dark is-medium is-bold">
+        <section class="hero is-dark is-small is-bold">
             <div class="hero-head">
+
                 <nav class="navbar" role="navigation" aria-label="main navigation">
                     <div class="navbar-brand">
                         <a class="navbar-item" href="index.html">
                             <img src="logo.png" width="32" height="32">
                         </a>
+                        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
                     </div>
-                    <div class="navbar-end">
-                        <div class="navbar-item">
-                            <div class="buttons is-right">
-                                <a class="button" href="signup.html" id="redirButton"><span><i class="fas fa-user-plus"></i> Sign Up</span></a>
-                                <a class="button" href="login.html" id="redirButton"><span><i class="fas fa-sign-in-alt"></i> Log In</span></a>
-                                <a class="button" href="https://github.com/adamalston/Summarizer" id="redirButton"><span><i class="fas fa-code"></i> View Source</span></a>
+                    <div id="mainNavbar" class="navbar-menu">
+                        <div class="navbar-start">
+ 
+                        </div>
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="buttons level-right">
+                                    <a class="button" href="signup.html" id="redirButton"><span><i class="fas fa-user-plus"></i> Sign Up</span></a>
+                                    <a class="button" href="login.html" id="redirButton"><span><i class="fas fa-sign-in-alt"></i> Log In</span></a>
+                                    <a class="button" href="https://github.com/adamalston/Summarizer" id="redirButton"><span><i class="fas fa-code"></i> View Source</span></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -44,13 +55,14 @@
 
         <div class="box">
             <div class="field has-addons has-addons-centered">
-                <p class="control">
-                    <input class="input" type="text" placeholder="URL" rows="1">
-                </p>
-                <p class="control">
+                <div class="control is-expanded">
+                    <input class="input" type="text" placeholder="URL">
+                </div>
+                <div class="control">
                     <a class="button" id="summarizeButton">Summarize</a>
-                </p>
+                </div>
             </div>
+            <p class="summarizeError help is-danger">Unable to create summary. Try a different URL.</p>
         </div>
 
         <section class="container">

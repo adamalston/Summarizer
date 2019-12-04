@@ -1,5 +1,5 @@
 .fullheight-hero {
-    height: 100vh;
+    height: 100%;
     position: relative;
 }
 
@@ -31,7 +31,7 @@
     color: red;
 }
 
-#redirButton, #logoutButton {
+#redirButton, #redirSignupButton, #redirLoginButton, #redirGithubButton, #logoutButton {
     background-color: rgb(24,26,27);
     border-color: gray;
     color: white;

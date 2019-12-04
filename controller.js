@@ -34,7 +34,7 @@ function addButtonListeners() {
             newAccount();
             // synchoronize removal of loading icon and newAccount
             $("#signupButton").removeClass('is-loading');
-        }, 250)
+        }, 250);
 
         hideElements();
     });
@@ -46,7 +46,7 @@ function addButtonListeners() {
         setTimeout(()=> {
             postLogin();
             $("#loginButton").removeClass('is-loading');
-        }, 250)
+        }, 250);
 
         hideElements();
     });
@@ -57,16 +57,34 @@ function addButtonListeners() {
         setTimeout(()=> {
             logout();
             $("#logoutButton").removeClass('is-loading');
-        }, 250)
-
+        }, 250);
     });
 
-    $("#redirButton").on('click', () => {
-        $("#redirButton").toggleClass('is-loading');
+    $("#redirSignupButton").on('click', () => {
+        $("#redirSignupButton").toggleClass('is-loading');
 
         setTimeout(()=> {
-            $("#redirButton").removeClass('is-loading');
-        }, 250)
+            window.location.replace("signup.html");
+            $("#redirSignupButton").removeClass('is-loading');
+        }, 250);
+    });
+    
+    $("#redirLoginButton").on('click', () => {
+        $("#redirLoginButton").toggleClass('is-loading');
+
+        setTimeout(()=> {
+            window.location.replace("login.html");
+            $("#redirLoginButton").removeClass('is-loading');
+        }, 250);
+    });
+
+    $("#redirGithubButton").on('click', () => {
+        $("#redirGithubButton").toggleClass('is-loading');
+
+        setTimeout(()=> {
+            window.location.replace("https://github.com/adamalston/Summarizer");
+            $("#redirGithubButton").removeClass('is-loading');
+        }, 250);
     });
     
     $("#summarizeButton").on('click', () => {
@@ -76,11 +94,11 @@ function addButtonListeners() {
             $("#summarizeButton").removeClass('is-loading');
             // add an async method to get the summary
             summarize();
-        }, 250)
+        }, 250);
     });
 
-    $(".navbar-burger").click(function() {
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+    $(".navbar-burger").on('click', () => {
+        // Toggle is-active class on both the navbar-burger and the navbar-menu
         $(".navbar-burger").toggleClass("is-active");
         $(".navbar-menu").toggleClass("is-active");
     });

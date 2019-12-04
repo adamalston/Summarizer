@@ -2,7 +2,6 @@
 // api key 9720744B0C
 /**
  * How to make an API request to SMMRY
- * 
  */
 
 
@@ -12,8 +11,12 @@ function hideElements() {
     $(".summarizeError").hide();
 }
 
+// function hideButtons() {
+//     $(".logoutButton").hide();
+// }
+
 const smmryURL = axios.create({
-    baseURL: "https://api.smmry.com/SM_API_KEY=9720744B0C"
+    baseURL: "https://api.smmry.com/&SM_API_KEY=9720744B0C&SM_LENGTH=5&SM_URL="
 });
 
 const accountRoot = axios.create({
@@ -28,8 +31,8 @@ function addButtonListeners() {
         $(".fa-id-badge").css("color", "#009fff");
 
         setTimeout(()=> {
-            postCredentials();
-            // synchoronize removal of loading icon and postCredentials
+            newAccount();
+            // synchoronize removal of loading icon and newAccount
             $("#signupButton").removeClass('is-loading');
         }, 250)
 
@@ -46,6 +49,16 @@ function addButtonListeners() {
         }, 250)
 
         hideElements();
+    });
+
+    $("#logoutButton").on('click', () => {
+        $("#logoutButton").toggleClass('is-loading');
+
+        setTimeout(()=> {
+            logout();
+            $("#logoutButton").removeClass('is-loading');
+        }, 250)
+
     });
 
     $("#redirButton").on('click', () => {
@@ -73,7 +86,7 @@ function addButtonListeners() {
     });
 }
 
-async function postCredentials() {
+async function newAccount() {
     try {
         const result = await accountRoot.post(`/create`,{
             "name": $("#newName").val(),
@@ -93,15 +106,40 @@ async function postCredentials() {
 }
 
 async function postLogin() {
-    try {
-        const result = await accountRoot.post(`/login`,{
-            "name": $("#name").val(),
-            "pass": $("#pass").val(),
-        });
+    // try {
+    //     const result = await accountRoot.post(`/login`,{
+    //         "name": $("#name").val(),
+    //         "pass": $("#pass").val(),
+    //     });
+        
+    //     window.location.replace("index.html");
+    // } catch (error) {
+    //     $(".loginError").show();
+    //     $(".fa-id-badge, .fa-lock").css("color", "red");
+    // }
+
+    let result = axios.post('http://localhost:3000/account/login', {
+        "name": $("#name").val(),
+        "pass": $("#pass").val(),
+    });
+
+    result.then(response => {
+        // console.log("we're in")
+        let jwt = response.data.jwt;
+        localStorage.setItem('jwt', jwt);
+        localStorage.setItem('user', response.data.name);
         window.location.replace("index.html");
-    } catch (error) {
+    }).catch(error => {
         $(".loginError").show();
         $(".fa-id-badge, .fa-lock").css("color", "red");
+        console.log(error);  
+    });
+}
+
+export const logout = function () {
+    if (localStorage.getItem("jwt") != null) {
+        localStorage.removeItem("jwt");
+        window.location.replace("login.html");
     }
 }
 
@@ -115,10 +153,13 @@ async function summarize() {
     }
 }
 
+let blinker = document.getElementById('blink');
+setInterval(function() {
+    blinker.style.display = (blinker.style.display == 'none' ? '' : 'none');
+}, 1000); 
+
 $(document).ready(() => {
     hideElements();
+    // hideButtons();
     addButtonListeners();
 });
-
-
-

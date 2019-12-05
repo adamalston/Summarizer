@@ -4,7 +4,6 @@
  * How to make an API request to SMMRY
  */
 
-
 function hideElements() {
     $(".signupError").hide();
     $(".loginError").hide();
@@ -14,10 +13,6 @@ function hideElements() {
 // function hideButtons() {
 //     $(".logoutButton").hide();
 // }
-
-const smmryURL = axios.create({
-    baseURL: "https://api.smmry.com/&SM_API_KEY=9720744B0C&SM_LENGTH=5&SM_URL="
-});
 
 const accountRoot = axios.create({
     baseURL: "http://localhost:3000/account"
@@ -64,7 +59,7 @@ function addButtonListeners() {
         $("#redirSignupButton").toggleClass('is-loading');
 
         setTimeout(()=> {
-            window.location.replace("signup.html");
+            window.location.href = "signup.html";
             $("#redirSignupButton").removeClass('is-loading');
         }, 250);
     });
@@ -73,7 +68,7 @@ function addButtonListeners() {
         $("#redirLoginButton").toggleClass('is-loading');
 
         setTimeout(()=> {
-            window.location.replace("login.html");
+            window.location.href = "login.html" ;
             $("#redirLoginButton").removeClass('is-loading');
         }, 250);
     });
@@ -82,7 +77,7 @@ function addButtonListeners() {
         $("#redirGithubButton").toggleClass('is-loading');
 
         setTimeout(()=> {
-            window.location.replace("https://github.com/adamalston/Summarizer");
+            window.location.href = "https://github.com/adamalston/Summarizer";
             $("#redirGithubButton").removeClass('is-loading');
         }, 250);
     });
@@ -107,14 +102,13 @@ function addButtonListeners() {
 async function newAccount() {
     try {
         const result = await accountRoot.post(`/create`,{
-            "name": $("#newName").val(),
-            "pass": $("#newPass").val(),
-            "data": {
-                "firstname": $("#firstname").val(),
-                "lastname": $("#lastname").val(),
-            }
-        });
-
+        "name": $("#newName").val(),
+        "pass": $("#newPass").val(),
+        "data": {
+            "firstname": $("#firstname").val(),
+            "lastname": $("#lastname").val(),
+        } 
+    });
         window.location.replace("login.html");
     } catch (error) {
         $(".signupError").show();
@@ -124,17 +118,6 @@ async function newAccount() {
 }
 
 async function postLogin() {
-    // try {
-    //     const result = await accountRoot.post(`/login`,{
-    //         "name": $("#name").val(),
-    //         "pass": $("#pass").val(),
-    //     });
-        
-    //     window.location.replace("index.html");
-    // } catch (error) {
-    //     $(".loginError").show();
-    //     $(".fa-id-badge, .fa-lock").css("color", "red");
-    // }
 
     let result = axios.post('http://localhost:3000/account/login', {
         "name": $("#name").val(),
@@ -150,7 +133,6 @@ async function postLogin() {
     }).catch(error => {
         $(".loginError").show();
         $(".fa-id-badge, .fa-lock").css("color", "red");
-        console.log(error);  
     });
 }
 
@@ -161,12 +143,31 @@ export const logout = function () {
     }
 }
 
+const smmryURL = axios.create({
+    baseURL: "https://api.smmry.com/&SM_API_KEY=9720744B0C&SM_LENGTH=5&SM_URL="
+});
+
 async function summarize() {
     try {
-        const result = await smmryURL.post(`/login`,{
-
+        let url = $("#url").val();
+        console.log(url);
+        const result = await smmryURL.get(`${url}`,{
+            "async": true,
+            "crossDomain": true,
+            "headers": {
+                "Access-Control-Allow-Origin": false,
+            }
         });
+        let title = result.sm_api_title;
+        let body = result.sm_api_content;
+        console.log(result.smi_api_message);
+        console.log(title);
+        console.log(body);
+        $("#title").innerHTML = title;
+        $("#content").innerHTML = body;
+        console.log("success");
     } catch (error) {
+        console.log("error");
         $(".summarizeError").show();
     }
 }

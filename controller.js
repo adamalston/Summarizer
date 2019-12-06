@@ -118,7 +118,6 @@ async function newAccount() {
 }
 
 async function postLogin() {
-
     let result = axios.post('http://localhost:3000/account/login', {
         "name": $("#name").val(),
         "pass": $("#pass").val(),
@@ -148,37 +147,69 @@ const smmryURL = axios.create({
 });
 
 async function summarize() {
-    try {
-        let url = $("#url").val();
-        console.log(url);
-        const result = await smmryURL.get(`${url}`,{
-            "async": true,
-            "crossDomain": true,
-            "headers": {
-                "Access-Control-Allow-Origin": false,
-            }
-        });
-        let title = result.sm_api_title;
-        let body = result.sm_api_content;
-        console.log(result.smi_api_message);
-        console.log(title);
-        console.log(body);
-        $("#title").innerHTML = title;
-        $("#content").innerHTML = body;
-        console.log("success");
-    } catch (error) {
-        console.log("error");
+    // try {
+    //     let url = $("#url").val();
+    //     console.log(url);
+    //     const result = await smmryURL.get(`${url}`,{
+    //         "async": true,
+    //         "crossDomain": true,
+    //         "headers": {
+    //             "Access-Control-Allow-Origin": false,
+    //         }
+    //     });
+    //     let title = result.sm_api_title;
+    //     let body = result.sm_api_content;
+    //     console.log(result.smi_api_message);
+    //     console.log(title);
+    //     console.log(body);
+    //     $("#title").innerHTML = title;
+    //     $("#content").innerHTML = body;
+    //     console.log("success");
+    // } catch (error) {
+    //     console.log("error");
+    // }
+
+    let result = axios.get('https://api.smmry.com/&SM_API_KEY=9720744B0C&SM_LENGTH=5&SM_URL=https://www.cnbc.com/2019/04/03/chinese-hackers-tricked-teslas-autopilot-into-switching-lanes.html', {
+        "async": true,
+        "crossDomain": true,
+        "headers": {
+        }
+    });
+
+    result.then(response => {
+        console.log(response);
+        console.log(response.data.sm_api_title);
+        $("#title").innerHTML = response.data.sm_api_title;
+        document.getElementById("title").innerHTML = response.data.sm_api_title;
+        document.getElementById("content").innerHTML = response.data.sm_api_content;
+        $("#content").innerHTML = response.data.sm_api_content;
+    }).catch(error => {
         $(".summarizeError").show();
-    }
+    });
 }
 
 let blinker = document.getElementById('blink');
 setInterval(function() {
     blinker.style.display = (blinker.style.display == 'none' ? '' : 'none');
-}, 1000); 
+}, 1000);
 
 $(document).ready(() => {
     hideElements();
     // hideButtons();
     addButtonListeners();
 });
+
+// --fixed
+// back button not working
+
+// --todo
+// separate view source from signup and login
+// make logout dissapear when not logged in
+
+// api data
+// {"sm_api_character_count":"546","sm_api_content_reduced":"91%","sm_api_title":"Keyboard class action lawsuit against Apple should succeed",
+// "sm_api_content":"Scarcely a month goes by without a new class action lawsuit against Apple. The vast majority of them are frivolous, often absurd, 
+// but there is one that deserves to succeed: the keyboard class action lawsuit over the failed butterfly design. The butterfly keyboard class action 
+// lawsuit hinges on two claims. Clearly if Apple had known the likely scale of the problem, it would never have included the butterfly keyboard in 
+// the machine. As a minimum, Apple should continue to offer free keyboard replacements for the reasonable expected life of the machine.",
+// "sm_api_limitation":"Waited 0 extra seconds due to API Free mode, 70 requests left to make for today."}

@@ -155,7 +155,6 @@ async function summarize() {
     
     let test = async function() {
         try {
-            console.log("in");
             let result = await smmryRoot.get(`/id`, {
                 "id": id,
             });	
@@ -175,17 +174,6 @@ async function summarize() {
         }
     }
     setTimeout(test, 1000); 
-
-//     result.then(response => {
-//         console.log(response);
-//         console.log(response.data.sm_api_title);
-//         $("#title").innerHTML = response.data.sm_api_title;
-//         $("#content").innerHTML = response.data.sm_api_content;
-//         document.getElementById("title").innerHTML = response.data.sm_api_title;
-//         document.getElementById("content").innerHTML = response.data.sm_api_content;
-//     }).catch(error => {
-//         $(".summarizeError").show();
-//     });
 }
 
 let blinker = document.getElementById('blink');

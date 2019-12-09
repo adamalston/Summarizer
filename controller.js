@@ -14,6 +14,10 @@ function hideElements() {
 //     $(".logoutButton").hide();
 // }
 
+const smmryRoot = axios.create({
+    baseURL: "http://localhost:3000/smmry"
+});
+
 const accountRoot = axios.create({
     baseURL: "http://localhost:3000/account"
 });
@@ -147,45 +151,37 @@ const smmryURL = axios.create({
 });
 
 async function summarize() {
-    // try {
-    //     let url = $("#url").val();
-    //     console.log(url);
-    //     const result = await smmryURL.get(`${url}`,{
-    //         "async": true,
-    //         "crossDomain": true,
-    //         "headers": {
-    //             "Access-Control-Allow-Origin": false,
-    //         }
-    //     });
-    //     let title = result.sm_api_title;
-    //     let body = result.sm_api_content;
-    //     console.log(result.smi_api_message);
-    //     console.log(title);
-    //     console.log(body);
-    //     $("#title").innerHTML = title;
-    //     $("#content").innerHTML = body;
-    //     console.log("success");
-    // } catch (error) {
-    //     console.log("error");
-    // }
-
-    let result = axios.get('https://api.smmry.com/&SM_API_KEY=9720744B0C&SM_LENGTH=5&SM_URL=https://www.cnbc.com/2019/04/03/chinese-hackers-tricked-teslas-autopilot-into-switching-lanes.html', {
-        "async": true,
-        "crossDomain": true,
-        "headers": {
+    let url = $("#url").val();
+    console.log(url);
+    
+    const res = await smmryRoot.post(`/id`, {
+        "data": {
+            "url": url,
         }
     });
-
-    result.then(response => {
-        console.log(response);
-        console.log(response.data.sm_api_title);
-        $("#title").innerHTML = response.data.sm_api_title;
-        document.getElementById("title").innerHTML = response.data.sm_api_title;
-        document.getElementById("content").innerHTML = response.data.sm_api_content;
-        $("#content").innerHTML = response.data.sm_api_content;
-    }).catch(error => {
-        $(".summarizeError").show();
-    });
+    let id = res.data.id;
+    console.log(id);
+    
+    let testerFun = async function() {
+        try {
+            let result = await smmryRoot.get(`/id`, {
+                "id": id,
+            });	
+            let title = result.body.data.sm_api_title;
+            let body = result.body.data.sm_api_content;
+            // console.log(result.body.data.smi_api_message);
+            // console.log(title);
+            // console.log(body);
+            document.getElementById("title").innerHTML = title;
+            document.getElementById("content").innerHTML = body;
+            console.log("success");
+        }
+        catch (e) {
+            console.log("loop");
+            setTimeout(testerFun, 1000);  
+        }
+    }
+    setTimeout(testerFun, 1000); 
 }
 
 let blinker = document.getElementById('blink');

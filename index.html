@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Summarizer</title>
-        <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+        <link rel="shortcut icon" href="logos/logo.png" type="image/x-icon">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
         <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
         <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
@@ -20,7 +20,7 @@
                 <nav class="navbar" role="navigation" aria-label="main navigation">
                     <div class="navbar-brand">
                         <a class="navbar-item" href="index.html">
-                            <img src="logo.png" width="32" height="32">
+                            <img src="logos/logo.png" width="32" height="32">
                         </a>
                         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
                             <span aria-hidden="true"></span>
@@ -37,8 +37,8 @@
                                 <div class="buttons level-right">
                                     <a class="button" id="redirSignupButton"><span><i class="fas fa-user-plus"></i> Sign Up</span></a>
                                     <a class="button" id="redirLoginButton"><span><i class="fas fa-sign-in-alt"></i> Log In</span></a>
-                                    <a class="button" id="redirGithubButton"><span><i class="fas fa-code"></i> View Source</span></a>
                                     <a class="button" id="logoutButton"><span><i class="fas fa-sign-out-alt"></i> Logout</span></a>
+                                    <a class="button" id="redirGithubButton"><span><i class="fas fa-code"></i> View Source</span></a>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
             </div>
             <div class="hero-body">
                 <div class="container has-text-centered">
-                    <h1 class="title"><img src="resizedLogo.png" width="128" height="128" style="vertical-align:middle">ummarizer</h1>
+                    <h1 class="title"><img src="logos/resizedLogo.png" width="128" height="128" style="vertical-align:middle">ummarizer</h1>
                     <div class="subtitle "id="tldr">
                         <h1>tl;dr <span id="blink">|</span></h1>
                     </div>
@@ -97,6 +97,9 @@
                                 <h4>Article Title</h4>
                                 <p>Summary 1</p>
                                 <p><a href="#">Source</a></p>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-trash"></i>
+                                </span>
                             </div>
                         </div>
                     </div>

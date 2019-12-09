@@ -22,6 +22,10 @@
     color: #009fff;
 }
 
+.fa-trash {
+    color: red;
+}
+
 .card {
     background-color: black;
     color: white;

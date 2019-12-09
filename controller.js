@@ -14,10 +14,6 @@ function hideElements() {
 //     $(".logoutButton").hide();
 // }
 
-const smmryRoot = axios.create({
-    baseURL: "http://localhost:3000/smmry"
-});
-
 const accountRoot = axios.create({
     baseURL: "http://localhost:3000/account"
 });
@@ -146,30 +142,26 @@ export const logout = function () {
     }
 }
 
-const smmryURL = axios.create({
-    baseURL: "https://api.smmry.com/&SM_API_KEY=9720744B0C&SM_LENGTH=5&SM_URL="
+const smmryRoot = axios.create({
+    baseURL: "http://localhost:3000/smmry"
 });
 
 async function summarize() {
-    let url = $("#url").val();
-    console.log(url);
-    
+    let url = $("#url").val();    
     const res = await smmryRoot.post(`/id`, {
-        "data": {
-            "url": url,
-        }
+        "url": url,
     });
-    let id = res.data.id;
-    console.log(id);
+    let id = res.data;
     
     let testerFun = async function() {
         try {
             let result = await smmryRoot.get(`/id`, {
                 "id": id,
             });	
-            let title = result.body.data.sm_api_title;
-            let body = result.body.data.sm_api_content;
-            // console.log(result.body.data.smi_api_message);
+            console.log(result);
+            let title = result.data.sm_api_title;
+            let body = result.data.sm_api_content;
+            // console.log(result.data.smi_api_message);
             // console.log(title);
             // console.log(body);
             document.getElementById("title").innerHTML = title;

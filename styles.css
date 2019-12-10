@@ -35,6 +35,10 @@
     color: red;
 }
 
+#bars {
+    color:#009fff;
+}
+
 #redirSignupButton, #redirLoginButton, #logoutButton {
     background-color: rgb(24,26,27);
     border-color: black;
@@ -45,6 +49,7 @@
     background-color: Transparent;
     border-color: #009fff;
     color: white;
+    
 }
 
 #signupButton, #loginButton, #summarizeButton {

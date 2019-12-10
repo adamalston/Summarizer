@@ -218,29 +218,26 @@ $(document).ready(() => {
     addButtonListeners();
 
     let jwt = localStorage.getItem("jwt");
-    try {
-        if (localStorage.getItem("jwt") != null) {
-            const result = accountRoot.get(`/status`,{
-                headers: {
-                    Authorization: "Bearer " + jwt,
-                },
-            });
-            loggedInButtons();
-        } else {
-            loggedOutButtons();
-        }
-    } catch (error) {
-        console.log(error)
-    }
+    
+    if (localStorage.getItem("jwt") != null) {
+        const result = accountRoot.get(`/status`,{
+            headers: {
+                Authorization: "Bearer " + jwt,
+            },
+        });
+        loggedInButtons();
+    } else {
+        loggedOutButtons();
+    }
 });
 
 // --fixed
 // back button not working
 // check status when someone logged in show buttons
+// make logout dissapear when not logged in
+// separate view source from signup and login
 
 // --todo
-// separate view source from signup and login
-// make logout dissapear when not logged in
 
 // api data
 // {"sm_api_character_count":"546","sm_api_content_reduced":"91%","sm_api_title":"Keyboard class action lawsuit against Apple should succeed",

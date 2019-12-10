@@ -35,9 +35,15 @@
     color: red;
 }
 
-#redirSignupButton, #redirLoginButton, #redirGithubButton, #logoutButton {
+#redirSignupButton, #redirLoginButton, #logoutButton {
     background-color: rgb(24,26,27);
-    border-color: gray;
+    border-color: black;
+    color: white;
+}
+
+#redirGithubButton {
+    background-color: Transparent;
+    border-color: #009fff;
     color: white;
 }
 

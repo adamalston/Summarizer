@@ -180,12 +180,11 @@ async function summarize() {
     
     let testerFun = async function(id) {
         try {
-            let result = await smmryRoot.get(`/id`, {
+            console.log("testerFun id: ", id);
+            const result = await smmryRoot.get(`/id`, {
                 "id": id,
             });	
-            // if (result.data == "undefined") {
-            //     throw "data is undefined";
-            // }
+            
             console.log(result.data);
             let title = result.data.sm_api_title;
             let body = result.data.sm_api_content;
@@ -197,7 +196,7 @@ async function summarize() {
             console.log("success");
         }
         catch (error) {
-            console.log(error);
+            console.log("error");
             setTimeout(testerFun, 1000, id);  
         }
     }
@@ -212,11 +211,6 @@ let blinker = document.getElementById('blink');
 setInterval(function() {
     blinker.style.display = (blinker.style.display == 'none' ? '' : 'none');
 }, 1000);
-
-let blinker = document.getElementById('blink');
-setInterval(function() {
-    blinker.style.display = (blinker.style.display == 'none' ? '' : 'none');
-}, 1000);
 
 $(document).ready(() => {
     hideElements();

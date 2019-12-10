@@ -25,17 +25,10 @@ router.post(`/id`, function (req, res) {
   });
 
 router.get(`/id`, function (req, res) {
-    let id = req.body.id;
-    let obj = smmryStore.get(`id`);
-    if (id in obj) {
-        res.send({
-            "data": smmryStore.get(`id.${id}.data`),
-        });
-    } else {
-        res.send({
-            "data": id,
-        });
-    }
+    let id = req.params.id;
+    console.log("router.get req.params: ",req.params);
+    let data = smmryStore.get(`id.${id}`);
+    res.send({"data": data});
 });
   
 async function getSmmry(url, id) {
@@ -59,6 +52,7 @@ function urlExists(u) {
         let key = keys[i];
         let url = smmryStore.get(`id.${key}.url`);
         if (u == url) {
+            console.log(key);
             return key;
         }
     }

@@ -1,2 +1,15 @@
 {
+  "id": {
+    "0": {},
+    "1": {
+      "url": "https://www.cnbc.com/2019/04/03/chinese-hackers-tricked-teslas-autopilot-into-switching-lanes.html",
+      "data": {
+        "sm_api_character_count": "1566",
+        "sm_api_content_reduced": "61%",
+        "sm_api_title": "",
+        "sm_api_content": "The group of cybersecurity researchers from Keen Security Labs in China placed bright-colored stickers on the road to create a \"Fake lane\" that tricked the self-driving software of a Tesla Model S into veering from the appropriate driving lane into the opposing lane on a test course, where oncoming traffic would be driving in a real-life scenario. In a statement provided to CNBC Make It, a Tesla spokesperson pointed out that in the Keen Security Labs' tests \"The physical environment around the vehicle is artificially altered.\" The Tesla spokesperson added that the vulnerability \"Is not a realistic concern given that a driver can easily override Autopilot at any time by using the steering wheel or brakes and should always be prepared to do so, and can manually operate the windshield wiper settings at all times.\" The group of researchers, who are what is known as ethical or \"White hat\" hackers because their research is meant to improve the security of the products and companies they hack, are actually listed in Tesla's \"Security Researcher Hall of Fame\" on the electric automaker's website. In the past, Keen Security Labs has taken part in the \"Bug bounty program\" that Tesla launched in 2014, and which currently offers rewards of up to $15,000 to hackers who make Tesla aware of any potential vulnerabilities in the company's software and other products. Recently, Tesla even awarded a Model 3 car to a pair of hackers who exposed a security bug in the Tesla vehicle that allowed them to take control of the car's internal web browser.",
+        "sm_api_limitation": "Waited 0 extra seconds due to API Free mode, 49 requests left to make for today."
+      }
+    }
+  }
 }

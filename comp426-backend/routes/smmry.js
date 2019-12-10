@@ -1,5 +1,6 @@
 import express from "express";
 import axios from "axios";
+//import $ from "jquery";
 
 export const router = express.Router();
 export const prefix = '/smmry';
@@ -24,7 +25,6 @@ router.get(`/id`, function (req, res) {
     res.send({
         "data": smmryStore.get(`id.${id}`)
     });
-
 });
 
 async function getSmmry(url, id) {

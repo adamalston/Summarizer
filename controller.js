@@ -171,42 +171,47 @@ const smmryRoot = axios.create({
     baseURL: "http://localhost:3000/smmry"
 });
 
-async function summarize() {
-    let url = $("#url").val();
-    const res = await smmryRoot.post(`/id`, {
-        "url": url,
-    });
-    let id = res.data
-    console.log(id);
-
-    let testerFun = async function() {
-        try {
-            let result = await smmryRoot.get(`/id`, {
-                "id": id,
-            });
-//             if (result.body.data == "undefined") {
-//                 throw "data is undefined";
-//             }
-            console.log("hello");
-            let title = result.data.sm_api_title;
-            let body = result.data.sm_api_content;
-            // console.log(title);
-            // console.log(body);
-            document.getElementById("title").innerHTML = title;
-            document.getElementById("content").innerHTML = body;
-            console.log("success");
-        }
-        catch (error) {
-            console.log("error");
-            setTimeout(testerFun, 1000);
-        }
-    }
-    setTimeout(testerFun, 1000);
+async function summarize() {
+    let url = $("#url").val();    
+    const res = await smmryRoot.post(`/id`, {
+        "url": url,
+    });
+    let id = res.data;
+    
+    let testerFun = async function(id) {
+        try {
+            let result = await smmryRoot.get(`/id`, {
+                "id": id,
+            });	
+            // if (result.data == "undefined") {
+            //     throw "data is undefined";
+            // }
+            console.log(result.data);
+            let title = result.data.sm_api_title;
+            let body = result.data.sm_api_content;
+            // console.log(result.body.data.smi_api_message);
+            // console.log(title);
+            // console.log(body);
+            document.getElementById("title").innerHTML = title;
+            document.getElementById("content").innerHTML = body;
+            console.log("success");
+        }
+        catch (error) {
+            console.log(error);
+            setTimeout(testerFun, 1000, id);  
+        }
+    }
+    setTimeout(testerFun, 1000, id); 
 }
 
-// async function getSummaryObject(id) {
-//     return await smmryRoot.get(`id.${id}`)
-// }
+// async function getSummaryObject(id) {
+//     return await smmryRoot.get(`id.${id}`)
+// }
+
+let blinker = document.getElementById('blink');
+setInterval(function() {
+    blinker.style.display = (blinker.style.display == 'none' ? '' : 'none');
+}, 1000);
 
 let blinker = document.getElementById('blink');
 setInterval(function() {

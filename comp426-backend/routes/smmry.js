@@ -1,43 +1,68 @@
-import express from "express";
-import axios from "axios";
+import express from "express";
+import axios from "axios";
+//import $ from "jquery";
 
-export const router = express.Router();
-export const prefix = '/smmry';
-export const {smmryStore} = require('../data/DataStore');
+export const router = express.Router();
+export const prefix = '/smmry';
+export const {smmryStore} = require('../data/DataStore');
 
-const smmryURL = axios.create({
-    baseURL: "https://api.smmry.com/&SM_API_KEY=9720744B0C&SM_LENGTH=5&SM_URL=",
+const smmryURL = axios.create({
+    baseURL: "https://api.smmry.com/&SM_API_KEY=9720744B0C&SM_LENGTH=5&SM_URL=",
 });
 
-router.post(`/id`, function (req, res) {
-    let url = req.body.url;
-    console.log(url);
-    let obj = Object.keys(smmryStore.get(`id`));
-    let id = Math.max(...obj) + 1;
-    console.log(id);
-    getSmmry(url, id);
-    res.send({"data": id});
-  });
+router.post(`/id`, function (req, res) {
+    let url = req.body.url; 
+    console.log(url);
+    url = url.replace(/^(https?:|)\/\//,'')
+    let obj = smmryStore.get(`id`);
+    let id = urlExists(url);
+    console.log("ID in obj: ",id in obj)
+    if (!(id in obj)) {
+        id = Math.max(...Object.keys(obj)) + 1;
+        console.log("new smmry, id: ", id);
+        //getSmmry(url, id);
+    }    
+    res.send({"data": id}); 
+  });
 
-router.get(`/id`, function (req, res) {
-    let id = req.body.id;
-    res.send({
-        "data": smmryStore.get(`id.${id}`)
-    });
-
+router.get(`/id`, function (req, res) {
+    let id = req.body.id;
+    let obj = smmryStore.get(`id`);
+    if (id in obj) {
+        res.send({
+            "data": smmryStore.get(`id.${id}.data`),
+        });
+    } else {
+        res.send({
+            "data": id,
+        });
+    }
 });
-
-async function getSmmry(url, id) {
-    try {
-        const result = await axios.get(`https://api.smmry.com/&SM_API_KEY=9720744B0C&SM_LENGTH=5&SM_URL=${url}`);
-        let data = result.data;
-        //console.log(result.data);
-        smmryStore.set(`id.${id}`, {
-            "url": url,
-            "data": data,
-        });
-    } catch (e) {
-        console.log("error");
-        //$(".summarizeError").show();
-    }
+  
+async function getSmmry(url, id) {
+    try {
+        const result = await axios.get(`https://api.smmry.com/&SM_API_KEY=9720744B0C&SM_LENGTH=5&SM_URL=${url}`);
+        let smmryData = result.data;
+        smmryStore.set(`id.${id}`, {
+            "url": url,
+            "data": smmryData,
+        }); 
+    } catch (e) {
+        console.log("error");
+        //$(".summarizeError").show();
+    }
 }
+
+function urlExists(u) {
+    let obj = smmryStore.get(`id`);
+    let keys = Object.keys(obj);
+    for (let i = 0; i < keys.length; i++) {
+        let key = keys[i];
+        let url = smmryStore.get(`id.${key}.url`);
+        if (u == url) {
+            return key;
+        }
+    }
+    return -1;
+}
+

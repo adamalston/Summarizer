@@ -14,7 +14,8 @@ The web app will start by prompting the user to sign up and login. Once this pro
 ![Proposal Flowchart](https://code2flow.com/vQxmbN.png)
 
 ## Functionality
-The web app will have multiple input fields that will take in text or a URL. 
+Our web app takes in a url and prints out the summary on the main card. It then stores the summary in a database. Summaries can be saved if the logged in user wants to access them in the future.
+~~The web app will have multiple input fields that will take in text or a URL.~~
 
 Signup/login procedures will be handled by a [backend server](https://github.com/cgburgess/comp426-backend) after we incorporate its functionality into our project. 
 
@@ -29,7 +30,9 @@ Identify the issue that your app solves?
 - Our app reduces that amount of time needed to read and conclude key information from a web article.
 
 Explain how your app solves the problem?
-- Our app utilizes the SMMRY API to summarize text on a webpage supplied by the user. We made a full custom route utilizing no pre-built methods. This custom route has post and get methods for storing the data and retrieving the data. We created this route after getting CORS errors. One positive aspect of the custom route is that it improves the security across our app. 
+- Our app utilizes the SMMRY API to summarize text on a webpage supplied by the user. We made a full custom route utilizing no pre-built methods. This custom route has post and get methods for storing the data and retrieving the data. We created this route after getting CORS errors. One positive aspect of the custom route is that it improves the security across our app.
 
 Demonstrate the main functionality of your website/product?
-- signup, login, logout, delete account, summarize.
+- signup, login, logout, delete account, summarize
+
+[Video](https://youtube.com/) video on YouTube.

@@ -193,7 +193,7 @@ function deleteAccount() {
                     Authorization: "Bearer " + jwt,
                 },
             });
-            console.log(result.param);
+            console.log(result);
         }
 //         const result = await accountRoot.delete(`/:username`,{
 
@@ -235,6 +235,8 @@ const smmryRoot = axios.create({
 
 async function summarize() {
     let url = $("#url").val();    
+    $("#url").val('');    
+
     const res = await smmryRoot.post(`/id`, {
         "url": url,
     });

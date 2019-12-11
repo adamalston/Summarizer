@@ -27,6 +27,7 @@
 }
 
 .card {
+    border-radius: 20px;
     background-color: black;
     color: white;
 }
@@ -39,7 +40,7 @@
     color:#009fff;
 }
 
-#redirSignupButton, #redirLoginButton, #logoutButton {
+#redirSignupButton, #redirLoginButton, #logoutButton, #deleteAccountButton {
     background-color: rgb(24,26,27);
     border-color: black;
     color: white;
@@ -49,13 +50,22 @@
     background-color: Transparent;
     border-color: #009fff;
     color: white;
-    
 }
 
 #signupButton, #loginButton, #summarizeButton {
     background-color: #009fff;
     border-color: #009fff;
     color: white;
+}
+
+#title {
+    color: white;
+}
+
+#save {
+    background-color: Transparent;
+    border-color: Transparent;
+    color: #009fff;
 }
 
 #blink {

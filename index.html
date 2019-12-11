@@ -23,9 +23,9 @@
                             <img src="logos/logo.png" width="32" height="32">
                         </a>
                         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
-                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true" id="bars"></span>
+                            <span aria-hidden="true" id="bars"></span>
+                            <span aria-hidden="true" id="bars"></span>
                         </a>
                     </div>
                     <div id="mainNavbar" class="navbar-menu">
@@ -63,10 +63,21 @@
                         <i class="fas fa-link"></i>
                     </span>
                 </div>
+
+                <div class="control" id="dropdown">
+                    <span class="select">
+                      <select>
+                        <option>Public</option>
+                        <option>Private</option>
+                      </select>
+                    </span>
+                </div>
+
                 <div class="control">
                     <a class="button" id="summarizeButton">Summarize</a>
                 </div>
             </div>
+            <p class="help has-text-centered" id="publicprivate">Would you like to store your summary in private (you are the only person that will <b>ever</b> see this summary) or public?</p>
             <p class="summarizeError help">Unable to create summary. Try a different URL.</p>
         </div>
 

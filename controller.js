@@ -10,16 +10,20 @@ function hideElements() {
     $(".summarizeError").hide();
 }
 
-function loggedInButtons() {
+function loggedInFeatures() {
     $("#logoutButton").show();
     $("#redirSignupButton").hide();
     $("#redirLoginButton").hide();
+    $("#dropdown").show();
+    $("#publicprivate").show();
 }
 
-function loggedOutButtons() {
+function loggedOutFeatures() {
     $("#logoutButton").hide();
     $("#redirSignupButton").show();
     $("#redirLoginButton").show();
+    $("#dropdown").hide();
+    $("#publicprivate").hide();
 }
 
 function addButtonListeners() {
@@ -225,9 +229,9 @@ $(document).ready(() => {
                 Authorization: "Bearer " + jwt,
             },
         });
-        loggedInButtons();
+        loggedInFeatures();
     } else {
-        loggedOutButtons();
+        loggedOutFeatures();
     }
 });
 

@@ -14,16 +14,14 @@ function loggedInFeatures() {
     $("#logoutButton").show();
     $("#redirSignupButton").hide();
     $("#redirLoginButton").hide();
-    $("#dropdown").show();
-    $("#publicprivate").show();
+    $("#save").show();
 }
 
 function loggedOutFeatures() {
     $("#logoutButton").hide();
     $("#redirSignupButton").show();
     $("#redirLoginButton").show();
-    $("#dropdown").hide();
-    $("#publicprivate").hide();
+    $("#save").hide();
 }
 
 function addButtonListeners() {
@@ -100,6 +98,19 @@ function addButtonListeners() {
         }, 250);
     });
 
+//     $("#saveSmmryButton").on('click', () => {
+//         saveSmmry();
+//     });
+
+    $("#deleteAccountButton").on('click', () => {
+        $("#deleteAccountButton").toggleClass('is-loading');
+
+        setTimeout(()=> {
+            deleteAccount();
+            $("#deleteAccountButton").removeClass('is-loading');
+        }, 250);
+    });
+
     $(".navbar-burger").on('click', () => {
         // Toggle is-active class on both the navbar-burger and the navbar-menu
         $(".navbar-burger").toggleClass("is-active");
@@ -135,7 +146,6 @@ async function postLogin() {
             "name": $("#name").val(),
             "pass": $("#pass").val(),
         });
-        console.log("we're in")
         let jwt = result.data.jwt;
         localStorage.setItem('jwt', jwt);
         localStorage.setItem('user',result.data.name);
@@ -164,7 +174,55 @@ async function postLogin() {
 //     });
 }
 
-export const logout = function () {
+// function saveSmmry() {
+//     try {
+//         const result = await accountRoot.post(`/user`,{
+
+//         });
+//     } catch (error) {
+
+//     }
+// }
+
+function deleteAccount() {
+    try {
+        let jwt = localStorage.getItem("jwt");
+        if (localStorage.getItem("jwt") != null) {
+            const result = accountRoot.get(`/status`,{
+                headers: {
+                    Authorization: "Bearer " + jwt,
+                },
+            });
+            console.log(result.param);
+        }
+//         const result = await accountRoot.delete(`/:username`,{
+
+//         });
+    //     if (localStorage.getItem("jwt") != null) {
+    //         localStorage.removeItem("jwt");
+    //         window.location.replace("signup.html");
+    //     }
+    } catch (error) {
+        console.log("error");
+    }
+}
+
+function checkStatus() {
+    let jwt = localStorage.getItem("jwt");
+    if (localStorage.getItem("jwt") != null) {
+        const result = accountRoot.get(`/status`,{
+            headers: {
+                Authorization: "Bearer " + jwt,
+            },
+        }); 
+        console.log(result)
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function logout() {
     if (localStorage.getItem("jwt") != null) {
         localStorage.removeItem("jwt");
         window.location.replace("login.html");
@@ -192,15 +250,13 @@ async function summarize() {
             let smmryObj = result.data.data;
             let title = smmryObj.data.sm_api_title;
             let body = smmryObj.data.sm_api_content;
-            
             // console.log(result.body.data.smi_api_message);
             // console.log(title);
             // console.log(body);
             document.getElementById("title").innerHTML = `${title}`;
             document.getElementById("content").innerHTML = `${body}`;
             console.log("success");
-        }
-        catch (error) {
+        } catch (error) {
             console.log("error");
             setTimeout(testerFun, 1000, id);  
         }
@@ -213,22 +269,17 @@ async function summarize() {
 // }
 
 let blinker = document.getElementById('blink');
-setInterval(function() {
-    blinker.style.display = (blinker.style.display == 'none' ? '' : 'none');
-}, 1000);
+if (blinker != null) {
+    setInterval(function() {
+        blinker.style.display = (blinker.style.display == 'none' ? '' : 'none');
+    }, 1000);
+}
 
 $(document).ready(() => {
     hideElements();
     addButtonListeners();
 
-    let jwt = localStorage.getItem("jwt");
-    
-    if (localStorage.getItem("jwt") != null) {
-        const result = accountRoot.get(`/status`,{
-            headers: {
-                Authorization: "Bearer " + jwt,
-            },
-        });
+    if (checkStatus()) {
         loggedInFeatures();
     } else {
         loggedOutFeatures();

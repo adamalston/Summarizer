@@ -5,7 +5,7 @@
       "data": {
         "sm_api_character_count": "1566",
         "sm_api_content_reduced": "61%",
-        "sm_api_title": "",
+        "sm_api_title": "These Chinese hackers tricked Tesla’s Autopilot into suddenly switching lanes",
         "sm_api_content": "The group of cybersecurity researchers from Keen Security Labs in China placed bright-colored stickers on the road to create a \"Fake lane\" that tricked the self-driving software of a Tesla Model S into veering from the appropriate driving lane into the opposing lane on a test course, where oncoming traffic would be driving in a real-life scenario. In a statement provided to CNBC Make It, a Tesla spokesperson pointed out that in the Keen Security Labs' tests \"The physical environment around the vehicle is artificially altered.\" The Tesla spokesperson added that the vulnerability \"Is not a realistic concern given that a driver can easily override Autopilot at any time by using the steering wheel or brakes and should always be prepared to do so, and can manually operate the windshield wiper settings at all times.\" The group of researchers, who are what is known as ethical or \"White hat\" hackers because their research is meant to improve the security of the products and companies they hack, are actually listed in Tesla's \"Security Researcher Hall of Fame\" on the electric automaker's website. In the past, Keen Security Labs has taken part in the \"Bug bounty program\" that Tesla launched in 2014, and which currently offers rewards of up to $15,000 to hackers who make Tesla aware of any potential vulnerabilities in the company's software and other products. Recently, Tesla even awarded a Model 3 car to a pair of hackers who exposed a security bug in the Tesla vehicle that allowed them to take control of the car's internal web browser.",
         "sm_api_limitation": "Waited 0 extra seconds due to API Free mode, 72 requests left to make for today."
       }
@@ -15,7 +15,7 @@
       "data": {
         "sm_api_character_count": "1044",
         "sm_api_content_reduced": "41%",
-        "sm_api_title": "North Carolina selected for Military Bowl; Tar Heels will face Temple on Dec. 27 :: WRALSportsFan.com",
+        "sm_api_title": "North Carolina selected for Military Bowl; Tar Heels will face Temple on Dec. 27",
         "sm_api_content": "Chapel Hill, N.C. - The North Carolina football program has been selected to play in the Military Bowl presented by Northrop Grumman against Temple, the game's selection committee announced Sunday. This will be the 34th bowl game in Carolina football's history and its first since 2016. The Military Bowl is scheduled for Friday, Dec. 27 with kickoff scheduled for noon at Navy-Marine Corps Memorial Stadium in Annapolis, Md. The game is scheduled to air on ESPN. This will be Carolina football's first trip to the Military Bowl and its first game against Temple. Under the guidance of offensive coordinator Phil Longo, the offense posted 469 yards per game, which ranked 14th nationally, while scoring 31.3 points per game. Coached by Rod Carey, Temple ranked third in the AAC in total defense, allowing 364.8 yards per game, while posting 3.25 sacks per game and 7.8 TFL. The Owls' offense ranked eighth in the conference, tallying 402 yards per game.",
         "sm_api_limitation": "Waited 0 extra seconds due to API Free mode, 69 requests left to make for today."
       }
@@ -35,11 +35,20 @@
       "data": {
         "sm_api_character_count": "1120",
         "sm_api_content_reduced": "78%",
-        "sm_api_title": "",
+        "sm_api_title": "Here’s how to ditch that ‘flight shame’ guilt",
         "sm_api_content": "The concept aims to get people to stop traveling by plane in order to lower carbon emissions and has gained momentum thanks to environmental activists like Greta Thunberg, who opted to travel by boat instead of flying across the Atlantic to attend a United Nations zero emissions summit in August. Investment bank Citi has also warned that \"Flight shaming\" could result in a slowdown in air travel as people look to reduce their carbon footprint. Swapping single-use plastics for a reusable cup or bottle, a metal or bamboo straw, as well as carrying a fabric bag and even a portable water purifier while travelling, is a suggestion James Thornton, CEO of adventure travel company Intrepid Travel, makes for lowering your carbon footprint. If you simply cannot avoid taking a flight due to long-haul travel, David Armstong, CEO of U.K.-based travel search platform HolidayPirates, recommends taking a direct flight as the biggest carbon emissions occur when a plane takes off and lands. Equally Thornton suggests taking the time to research which airlines or travel companies have a carbon offsetting program.",
         "sm_api_limitation": "Waited 0 extra seconds due to API Free mode, 42 requests left to make for today."
+      }
+    },
+    "5": {
+      "url": "www.roadandtrack.com/car-culture/a29821408/0030-0031-ode-to-the-burnout-november-2019/",
+      "data": {
+        "sm_api_character_count": "570",
+        "sm_api_content_reduced": "84%",
+        "sm_api_title": "Burnout Love Letter From a 2020 C8 Mid-Engine Corvette",
+        "sm_api_content": "Spend a week in the world's most spectacular cars. Sports cars are wrapped up in the quandaries of personal freedom more than any other vehicle on four wheels, in pushing the bounds of legally and socially acceptable behavior. Modern life is increasingly a series of confined boxes, and a sports car fits in none of them. If you sat down and designed a sports car by bullet point, listing necessary functions on a spreadsheet, a burnout would be last on the list. The car performed a perfect pirouette, that pushrod small-block screaming at the sky while the tires went to vapor.",
+        "sm_api_limitation": "Waited 0 extra seconds due to API Free mode, 94 requests left to make for today."
       }
     }
   }
 }
-

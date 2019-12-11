@@ -27,6 +27,13 @@
         "firstname": "new",
         "lastname": "account"
       }
+    },
+    "ericf97": {
+      "passwordHash": "$2a$10$4YvVl3L3WoO2z8AXffLpHeWzlAEF/6EVaQrJj/455/YVL9pallqSC",
+      "data": {
+        "firstname": "Eric",
+        "lastname": "Floyd"
+      }
     }
   }
 }

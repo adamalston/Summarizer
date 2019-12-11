@@ -22,8 +22,8 @@ router.post(`/id`, function (req, res) {
         id = Math.max(...Object.keys(obj)) + 1;
         console.log("new smmry, id: ", id);
         getSmmry(url, id);
-    }    
-    res.send({"data": id}); 
+    }
+    res.send({"data": id});
   });
 
 router.post(`/getID`, function (req, res) {

@@ -89,6 +89,7 @@ function addButtonListeners() {
     });
 
     $("#summarizeButton").on('click', () => {
+        
         $("#summarizeButton").toggleClass('is-loading');
 
         setTimeout(()=> {
@@ -207,15 +208,15 @@ function deleteAccount() {
     }
 }
 
-function checkStatus() {
+async function checkStatus() {
     let jwt = localStorage.getItem("jwt");
     if (localStorage.getItem("jwt") != null) {
-        const result = accountRoot.get(`/status`,{
+        const result = await accountRoot.get(`/status`,{
             headers: {
                 Authorization: "Bearer " + jwt,
             },
         }); 
-        console.log(result)
+        console.log(result.data.user.name);
         return true;
     } else {
         return false;
@@ -234,9 +235,8 @@ const smmryRoot = axios.create({
 });
 
 async function summarize() {
-    let url = $("#url").val();    
-    $("#url").val('');    
-
+    let url = $("#url").val();
+    $("#url").val('');
     const res = await smmryRoot.post(`/id`, {
         "url": url,
     });
@@ -252,9 +252,8 @@ async function summarize() {
             let smmryObj = result.data.data;
             let title = smmryObj.data.sm_api_title;
             let body = smmryObj.data.sm_api_content;
-            // console.log(result.body.data.smi_api_message);
-            // console.log(title);
-            // console.log(body);
+            let url = smmryObj.url;
+
             document.getElementById("title").innerHTML = `${title}`;
             document.getElementById("content").innerHTML = `${body}`;
             console.log("success");
@@ -269,6 +268,8 @@ async function summarize() {
 // async function getSummaryObject(id) {
 //     return await smmryRoot.get(`id.${id}`)
 // }
+
+
 
 let blinker = document.getElementById('blink');
 if (blinker != null) {

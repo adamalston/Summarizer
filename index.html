@@ -38,6 +38,7 @@
                                     <a class="button" id="redirSignupButton"><span><i class="fas fa-user-plus"></i> Sign Up</span></a>
                                     <a class="button" id="redirLoginButton"><span><i class="fas fa-sign-in-alt"></i> Log In</span></a>
                                     <a class="button" id="logoutButton"><span><i class="fas fa-sign-out-alt"></i> Logout</span></a>
+                                    <a class="button" id="deleteAccountButton"><span><i class="fas fa-trash"></i> Delete Account</span></a>
                                     <a class="button" id="redirGithubButton"><span><i class="fas fa-code"></i> View Source</span></a>
                                 </div>
                             </div>
@@ -64,20 +65,10 @@
                     </span>
                 </div>
 
-                <div class="control" id="dropdown">
-                    <span class="select">
-                      <select>
-                        <option>Public</option>
-                        <option>Private</option>
-                      </select>
-                    </span>
-                </div>
-
                 <div class="control">
                     <a class="button" id="summarizeButton">Summarize</a>
                 </div>
             </div>
-            <p class="help has-text-centered" id="publicprivate">Would you like to store your summary in private (you are the only person that will <b>ever</b> see this summary) or public?</p>
             <p class="summarizeError help">Unable to create summary. Try a different URL.</p>
         </div>
 
@@ -85,24 +76,21 @@
             <div class="columns features is-multiline is-centered">
                 <div class="column is-12">
                     <div class="card is-shady">
-                        <div class="card-image has-text-centered">
-                            <span>logo of source</span>
-                        </div>
                         <div class="card-content">
                             <div class="content">
-                                <h4 id="title">Article Title</h4>
+                                <h4 class="has-text-centered" id="title">Article Title</h4>
                                 <p id="content">Summary current</p>
                                 <p><a href="#" id="source">Source</a></p>
                             </div>
+                        </div>
+
+                        <div class="control has-text-centered">
+                            <div class="button" id="saveSmmryButton">Save</div>
                         </div>
                     </div>
                 </div>
                 <div class="column is-4">
                     <div class="card is-shady">
-                        <div class="card-image has-text-centered">
-                            <span>logo of source</span>
-                        </div>
-                        
                         <div class="card-content">
                             <div class="content">
                                 <h4>Article Title</h4>
@@ -117,9 +105,6 @@
                 </div>
                 <div class="column is-4">
                     <div class="card is-shady">
-                        <div class="card-image has-text-centered">
-                            <span>logo of source</span>
-                        </div>
                         <div class="card-content">
                             <div class="content">
                                 <h4>Article Title</h4>
@@ -131,9 +116,6 @@
                 </div>
                 <div class="column is-4">
                     <div class="card is-shady">
-                        <div class="card-image has-text-centered">
-                            <span>logo of source</span>
-                        </div>
                         <div class="card-content">
                             <div class="content">
                                 <h4>Article  Title</h4>

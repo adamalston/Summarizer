@@ -14,14 +14,16 @@ function loggedInFeatures() {
     $("#logoutButton").show();
     $("#redirSignupButton").hide();
     $("#redirLoginButton").hide();
-    $("#save").show();
+    $("#saveSmmryButton").show();
+    $("#deleteAccountButton").show();
 }
 
 function loggedOutFeatures() {
     $("#logoutButton").hide();
     $("#redirSignupButton").show();
     $("#redirLoginButton").show();
-    $("#save").hide();
+    $("#saveSmmryButton").hide();
+    $("#deleteAccountButton").hide();
 }
 
 function addButtonListeners() {
@@ -155,24 +157,6 @@ async function postLogin() {
         $(".loginError").show();
         $(".fa-id-badge, .fa-lock").css("color", "red");
     }
-        
-//     let result = axios.post('http://localhost:3000/account/login', {
-//         "name": $("#name").val(),
-//         "pass": $("#pass").val(),
-//     });
-
-//     result.then(response => {
-//         // console.log("we're in")
-//         $("#signupButton").hide();
-//         $("#loginButton").hide();
-//         let jwt = response.data.jwt;
-//         localStorage.setItem('jwt', jwt);
-//         localStorage.setItem('user', response.data.name);
-//         window.location.replace("index.html");
-//     }).catch(error => {
-//         $(".loginError").show();
-//         $(".fa-id-badge, .fa-lock").css("color", "red");
-//     });
 }
 
 // function saveSmmry() {
@@ -185,24 +169,17 @@ async function postLogin() {
 //     }
 // }
 
-function deleteAccount() {
+async function deleteAccount() {
     try {
-        let jwt = localStorage.getItem("jwt");
-        if (localStorage.getItem("jwt") != null) {
-            const result = accountRoot.get(`/status`,{
-                headers: {
-                    Authorization: "Bearer " + jwt,
-                },
-            });
-            console.log(result);
+        let username = await checkStatus();
+        console.log(username);
+        if (username === undefined) {
+            throw "Username is undefined"
+        } else {
+            const res = await accountRoot.delete(`/${username}`);
+            localStorage.removeItem("jwt");
+            window.location.replace("signup.html");
         }
-//         const result = await accountRoot.delete(`/:username`,{
-
-//         });
-    //     if (localStorage.getItem("jwt") != null) {
-    //         localStorage.removeItem("jwt");
-    //         window.location.replace("signup.html");
-    //     }
     } catch (error) {
         console.log("error");
     }
@@ -210,16 +187,15 @@ function deleteAccount() {
 
 async function checkStatus() {
     let jwt = localStorage.getItem("jwt");
-    if (localStorage.getItem("jwt") != null) {
+    if (localStorage.getItem("jwt") != null) {
         const result = await accountRoot.get(`/status`,{
             headers: {
                 Authorization: "Bearer " + jwt,
             },
         }); 
-        console.log(result.data.user.name);
-        return true;
+        return result.data.user.name;
     } else {
-        return false;
+        return undefined;
     }
 }
 
@@ -278,11 +254,14 @@ if (blinker != null) {
     }, 1000);
 }
 
-$(document).ready(() => {
+
+$(document).ready(async() => {
     hideElements();
     addButtonListeners();
-
-    if (checkStatus()) {
+    let username = await checkStatus();
+    console.log(username);
+    
+    if (username != undefined) {
         loggedInFeatures();
     } else {
         loggedOutFeatures();

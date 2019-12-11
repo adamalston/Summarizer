@@ -49,6 +49,13 @@
         "sm_api_content": "Spend a week in the world's most spectacular cars. Sports cars are wrapped up in the quandaries of personal freedom more than any other vehicle on four wheels, in pushing the bounds of legally and socially acceptable behavior. Modern life is increasingly a series of confined boxes, and a sports car fits in none of them. If you sat down and designed a sports car by bullet point, listing necessary functions on a spreadsheet, a burnout would be last on the list. The car performed a perfect pirouette, that pushrod small-block screaming at the sky while the tires went to vapor.",
         "sm_api_limitation": "Waited 0 extra seconds due to API Free mode, 94 requests left to make for today."
       }
+    },
+    "6": {
+      "url": "",
+      "data": {
+        "sm_api_error": 3,
+        "sm_api_message": "THE PAGE IS TOO LONG TO RETRIEVE"
+      }
     }
   }
 }

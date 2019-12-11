@@ -1,12 +1,5 @@
 {
   "users": {
-    "adam": {
-      "passwordHash": "$2a$10$QB3RbgZyjA0jUTvKBZuE4upyff7XbqHDRhh41XpD7FNmPxgs8nQ/y",
-      "data": {
-        "firstname": "Adam",
-        "lastname": "Alston"
-      }
-    },
     "test": {
       "passwordHash": "$2a$10$0tM5xeUUpWfp8eN4N3Tjt.np5P1pRo8nVXJ7XBZPpUNdgWguuMsge",
       "data": {
@@ -33,6 +26,13 @@
       "data": {
         "firstname": "Eric",
         "lastname": "Floyd"
+      }
+    },
+    "adam": {
+      "passwordHash": "$2a$10$sDdc/2V9ne.7dR2k2ZrAfeMG6bpaY7i3VOF6fjWHHiW55OgaXoh3W",
+      "data": {
+        "firstname": "Adam",
+        "lastname": "Alston"
       }
     }
   }

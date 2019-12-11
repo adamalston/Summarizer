@@ -19,3 +19,17 @@ The web app will have multiple input fields that will take in text or a URL.
 Signup/login procedures will be handled by a [backend server](https://github.com/cgburgess/comp426-backend) after we incorporate its functionality into our project. 
 
 [SMMRY API](https://smmry.com/api) used to summarize the given input.
+
+
+## Video
+Identify your target user/customer?
+- People that have difficulty focusing for long periods of time and people that don’t have time to read full web articles. In general we think our app will be useful for anyone consuming news via the web.
+
+Identify the issue that your app solves? 
+- Our app reduces that amount of time needed to read and conclude key information from a web article.
+
+Explain how your app solves the problem?
+- Our app utilizes the SMMRY API to summarize text on a webpage supplied by the user. We made a full custom route utilizing no pre-built methods. This custom route has post and get methods for storing the data and retrieving the data. We created this route after getting CORS errors. One positive aspect of the custom route is that it improves the security across our app. 
+
+Demonstrate the main functionality of your website/product?
+- signup, login, logout, delete account, summarize.

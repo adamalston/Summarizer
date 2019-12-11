@@ -33,6 +33,7 @@
 }
 
 .signupError, .loginError, .summarizeError {
+    display: none;
     color: red;
 }
 

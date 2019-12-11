@@ -22,10 +22,10 @@
       }
     },
     "ericf97": {
-      "passwordHash": "$2a$10$4YvVl3L3WoO2z8AXffLpHeWzlAEF/6EVaQrJj/455/YVL9pallqSC",
+      "passwordHash": "$2a$10$/oIgaaGLSnRNuT8RNyXSuOEIMrJf42RSOOu3RD/Sw8qbSm1Uq1z/q",
       "data": {
-        "firstname": "Eric",
-        "lastname": "Floyd"
+        "firstname": "eric",
+        "lastname": "floyd"
       }
     },
     "adam": {

@@ -180,19 +180,20 @@ async function summarize() {
     
     let testerFun = async function(id) {
         try {
-            console.log("testerFun id: ", id);
-            const result = await smmryRoot.get(`/id`, {
+            //console.log("testerFun id: ", id);
+            const result = await smmryRoot.post(`/getID`, {
                 "id": id,
             });	
+            console.log(result.data.data);
+            let smmryObj = result.data.data;
+            let title = smmryObj.data.sm_api_title;
+            let body = smmryObj.data.sm_api_content;
             
-            console.log(result.data);
-            let title = result.data.sm_api_title;
-            let body = result.data.sm_api_content;
             // console.log(result.body.data.smi_api_message);
             // console.log(title);
             // console.log(body);
-            document.getElementById("title").innerHTML = title;
-            document.getElementById("content").innerHTML = body;
+            document.getElementById("title").innerHTML = `${title}`;
+            document.getElementById("content").innerHTML = `${body}`;
             console.log("success");
         }
         catch (error) {

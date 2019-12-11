@@ -1,5 +1,7 @@
 import express from "express";
 import axios from "axios";
+import {parseGet} from "../middlewares/parse_get";
+import {parsePost} from "../middlewares/parse_post";
 
 export const router = express.Router();
 export const prefix = '/smmry';
@@ -15,19 +17,21 @@ router.post(`/id`, function (req, res) {
     url = url.replace(/^(https?:|)\/\//,'')
     let obj = smmryStore.get(`id`);
     let id = urlExists(url);
-    console.log("ID in obj: ",id in obj)
+    console.log("ID in obj: ",id in obj);
     if (!(id in obj)) {
         id = Math.max(...Object.keys(obj)) + 1;
         console.log("new smmry, id: ", id);
-        //getSmmry(url, id);
+        getSmmry(url, id);
     }    
     res.send({"data": id}); 
   });
 
-router.get(`/id`, function (req, res) {
-    let id = req.params.id;
-    console.log("router.get req.params: ",req.params);
+router.post(`/getID`, function (req, res) {
+    let id = req.body.id.data;
+    console.log(req.body.id.data);
+    console.log("router.get req: ",req.body.id);
     let data = smmryStore.get(`id.${id}`);
+    console.log(data);
     res.send({"data": data});
 });
   

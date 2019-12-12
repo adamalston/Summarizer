@@ -16,7 +16,8 @@ function loggedInFeatures() {
     // $("#saveSmmryButton").show();
     $("#deleteAccountButton").show();
     $("#notesSection").show();
-    $("#secondaryButtons").show();
+    // $("#userSummaries").hide();
+    // $("#privateSummaries").show();
     // $("#saveSection").show();
 }
 
@@ -27,7 +28,7 @@ function loggedOutFeatures() {
     // $("#saveSmmryButton").hide();
     $("#deleteAccountButton").hide();
     $("#notesSection").hide();
-    $("#secondaryButtons").hide();
+    // $("#secondaryButtons").hide();
     // $("#saveSection").hide();
 }
 
@@ -135,9 +136,6 @@ function addButtonListeners() {
 
     $("#userSummaries").on('click', () => {
         $("#userSummaries").toggleClass('is-loading');
-        $("userSummaries").hide();
-        $("privateSummaries").show();
-
         setTimeout(async () => {
             let username = await checkStatus();
             populateMain(username);
@@ -146,14 +144,15 @@ function addButtonListeners() {
     });
 
     $("#privateSummaries").on('click', () => {
+        event.preventDefault();
         $("#privateSummaries").toggleClass('is-loading');
-        $("userSummaries").show();
-        $("privateSummaries").hide();
+        
         setTimeout(async () => {
             let username = await checkStatus();
             populatePrivate(username);
             $("#privateSummaries").removeClass('is-loading');
         }, 250);
+        $("#attachNoteButton").hide();
     });
 }
 

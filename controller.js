@@ -16,6 +16,8 @@ function loggedInFeatures() {
     // $("#saveSmmryButton").show();
     $("#deleteAccountButton").show();
     $("#notesSection").show();
+    // $("#userSummaries").hide();
+    // $("#privateSummaries").show();
     // $("#saveSection").show();
 }
 
@@ -26,6 +28,7 @@ function loggedOutFeatures() {
     // $("#saveSmmryButton").hide();
     $("#deleteAccountButton").hide();
     $("#notesSection").hide();
+    // $("#secondaryButtons").hide();
     // $("#saveSection").hide();
 }
 
@@ -131,6 +134,36 @@ function addButtonListeners() {
         $(".navbar-burger").toggleClass("is-active");
         $(".navbar-menu").toggleClass("is-active");
     });
+
+    $("#attachNoteButton").on('click', () => {
+        $("#attachNoteButton").toggleClass('is-loading');
+
+        setTimeout(() => {
+            attachNote();
+            $("#attachNoteButton").removeClass('is-loading');
+        }, 250);
+    });
+
+    $("#userSummaries").on('click', () => {
+        $("#userSummaries").toggleClass('is-loading');
+        setTimeout(async () => {
+            let username = await checkStatus();
+            populateMain(username);
+            $("#userSummaries").removeClass('is-loading');
+        }, 250);
+    });
+
+    $("#privateSummaries").on('click', () => {
+        event.preventDefault();
+        $("#privateSummaries").toggleClass('is-loading');
+        
+        setTimeout(async () => {
+            let username = await checkStatus();
+            populatePrivate(username);
+            $("#privateSummaries").removeClass('is-loading');
+        }, 250);
+        $("#attachNoteButton").hide();
+    });
 }
 
 const accountRoot = axios.create({
@@ -173,7 +206,7 @@ async function postLogin() {
 
 // async function saveSmmry() {
 //     try {
-        
+
 //         let jwt = localStorage.getItem("jwt");
 //         let res = await userRoot.post('/ids',
 //             {
@@ -303,6 +336,36 @@ async function getSummaryObject(id) {
     return obj;
 }
 
+async function attachNote() {
+    let addNote = $("#note").val();
+    $("#note").val('');
+    let id = $("#attachNoteButton").val();
+    let jwt = localStorage.getItem("jwt");
+    let arr = await userRoot.get(`/ids`,
+        {
+            headers: {
+                Authorization: "Bearer " + jwt,
+            }
+        }
+    );
+    arr = arr.data.result;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].data == id) {
+            arr[i].notes = addNote;
+        }
+    }
+    const result = await userRoot.post(`/ids`,
+        {
+            "data": arr
+        },
+        {
+            headers: {
+                Authorization: "Bearer " + jwt,
+            }
+        }
+    );
+}
+
 // async postToStore
 
 async function populateMain(username) {
@@ -324,11 +387,12 @@ async function populateMain(username) {
         });
         console.log(result);
         obj = result.data.result;
-        
+
         console.log(obj);
         let id = obj[obj.length - 1].data;
         notes = obj[obj.length - 1].notes;
         console.log(notes);
+        $('#attachNoteButton').val(`${id}`);
         smmry = await getSummaryObject(id);
     }
     if (notes === undefined) {
@@ -349,6 +413,66 @@ async function populateMain(username) {
     $("#mainContent").remove();
     $("#mainCard").append($(smmryMarkup));
     populateSecondaries(obj);
+}
+
+async function populatePrivate(username) {
+    let secondaryMarkup = (title, source, link, id) => {
+        return `
+        <div class="column is-4 secondaries">
+            <div class="card">
+                <div class="card-content">
+                    <div class="content">
+                        <h4 id="title">${title}</h4>
+                        <p><a id="source" href="${source}">${link}</a></p>
+                        <div class="control">
+                            <a class="button" id="${id}">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`
+    }
+    $(".secondaries").remove();
+    let jwt = localStorage.getItem("jwt");
+    let result = await privateRoot.get('/ids',
+        {
+            headers: {
+                Authorization: "Bearer " + jwt,
+            }
+        }
+    );
+    let array = result.data.result;
+
+    console.log(array);
+
+    for (let i = array.length - 1; i >= 0; i--) {
+        let userObj = array[i];
+        let smmry = await getSummaryObject(userObj);
+        let title = smmry.data.sm_api_title;
+        let content = smmry.data.sm_api_content;
+        let source = smmry.url;
+        let link = source.split('/')[0];
+        $("#mainColumn").append($(secondaryMarkup(title, source, link, userObj)));
+
+    }
+    for (let i = array.length - 1; i >= 0; i--) {
+        let userObj = array[i];
+        let smmry = await getSummaryObject(userObj);
+        let title = smmry.data.sm_api_title;
+        let content = smmry.data.sm_api_content;
+        let source = smmry.url;
+        $(`#${userObj}`).on('click', () => {
+            let smmryMarkup = `
+                <div class="content" id="mainContent">
+                    <h4 class="has-text-centered" id="title">${title}</h4>
+                    <p id="content">${content}</p>
+                    <p><a href="${source}" id="source">${source}</a></p>
+                </div>`;
+            $("#attachNoteButton").val(`${userObj}`);
+            $("#mainContent").remove();
+            $("#mainCard").append($(smmryMarkup));
+        });
+    }
 }
 
 async function populateSecondaries(array) {
@@ -376,7 +500,7 @@ async function populateSecondaries(array) {
         </div>`
     }
     $(".secondaries").remove();
-    
+
     for (let i = array.length - 1; i >= 0; i--) {
         let notes, id, smmry;
         let userObj = array[i];
@@ -395,7 +519,7 @@ async function populateSecondaries(array) {
         let source = smmry.url;
         let link = source.split('/')[0];
         $("#mainColumn").append($(secondaryMarkup(title, source, link, notes, id)));
-        
+
     }
     for (let i = array.length - 1; i >= 0; i--) {
         let notes, id, smmry;
@@ -426,6 +550,7 @@ async function populateSecondaries(array) {
                     <p><a href="${source}" id="source">${source}</a></p>
                     <p>${notes}</p>
                 </div>`;
+            $("#attachNoteButton").val(`${id}`);
             $("#mainContent").remove();
             $("#mainCard").append($(smmryMarkup));
         });

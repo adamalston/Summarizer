@@ -27,7 +27,8 @@
 }
 
 .card {
-    border-radius: 20px;
+    border-radius: 30px;
+    padding-bottom: 10px;
     background-color: rgb(70, 70, 70);
     color: white;
 }
@@ -35,6 +36,29 @@
 .signupError, .loginError, .summarizeError {
     display: none;
     color: red;
+}
+
+#notesSection {
+    width: 95%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+#note {
+    background-color: Transparent;
+    border-color: lightgray;
+}
+
+#attachNoteButton {
+    background-color: Transparent;
+    color: lightgray;
+    border-color: lightgray;
+}
+
+#saveButton {
+    background-color: Transparent;
+    color: #009fff;
+    border-color: #009fff;
 }
 
 #bars {
@@ -61,12 +85,6 @@
 
 #title {
     color: white;
-}
-
-#saveSmmryButton {
-    background-color: Transparent;
-    border-color: Transparent;
-    color: #009fff;
 }
 
 #blink {

@@ -15,6 +15,8 @@ function loggedInFeatures() {
     $("#redirLoginButton").hide();
     $("#saveSmmryButton").show();
     $("#deleteAccountButton").show();
+    $("#notesSection").show();
+    $("#saveSection").show();
 }
 
 function loggedOutFeatures() {
@@ -23,6 +25,8 @@ function loggedOutFeatures() {
     $("#redirLoginButton").show();
     $("#saveSmmryButton").hide();
     $("#deleteAccountButton").hide();
+    $("#notesSection").hide();
+    $("#saveSection").hide();
 }
 
 function addButtonListeners() {
@@ -223,8 +227,7 @@ async function summarize() {
             let body = smmryObj.data.sm_api_content;
             let url = smmryObj.url;
             populateMain(smmryObj);
-            // document.getElementById("title").innerHTML = `${title}`;
-            // document.getElementById("content").innerHTML = `${body}`;
+
             console.log("success");
         } catch (error) {
             console.log("error");

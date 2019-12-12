@@ -29,9 +29,7 @@ router.post(`/id`, function (req, res) {
 
 router.post(`/getID`, function (req, res) {
     let id = req.body.id;
-    console.log(id);
     let data = smmryStore.get(`id.${id}`);
-    console.log(data)
     res.send({"data": data});
 });
   

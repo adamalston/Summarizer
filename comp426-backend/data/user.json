@@ -1,9 +1,22 @@
 {
   "ericf97": {
     "ids": [
-      "6",
-      "7",
-      "5"
+      {
+        "data": "6",
+        "notes": "KMP, pls halp"
+      },
+      {
+        "data": "7",
+        "notes": ""
+      },
+      {
+        "data": "5",
+        "notes": "KMP help us."
+      },
+      {
+        "data": "8",
+        "notes": "Saved for future LOLs when I can get the time to watch.."
+      }
     ]
   }
 }

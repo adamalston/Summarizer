@@ -79,6 +79,16 @@
         "sm_api_content": "Microsoft has begun forcibly upgrading Windows 10 PCs running version 1809 with the latest, the November 2019 Update, aka 1909, which the company launched less than a month ago. \"We will slowly start the phased process to automatically initiate a feature update for devices running the October 2018 Update Home and Pro editions,\" Microsoft said in a Dec. 5 message on Windows 10 1909's page of the Windows Release Health Dashboard. The company said that those running Windows 10 Home, as well as users running unmanaged devices powered by Windows 10 Pro, would be able to decide when to upgrade from one version of the operating system to another using a \"Download and install now\" option. Those Windows 10 Home and Windows 10 Pro users who were at the front of the 1809 distribution line would also be the most likely to get 1909 off the bat. Users can retrieve and install Windows 10 1909 on their own schedule at any time - they don't have to wait for Microsoft to do it for them - by following the steps outlined in this Nov. 12 post to a Microsoft blog.",
         "sm_api_limitation": "Waited 0 extra seconds due to API Free mode, 81 requests left to make for today."
       }
+    },
+    "8": {
+      "url": "www.businessinsider.com/video-elon-musk-hits-traffic-sign-tesla-cybertruck-malibu-2019-12",
+      "data": {
+        "sm_api_character_count": "593",
+        "sm_api_content_reduced": "53%",
+        "sm_api_title": "Video: Elon Musk hits traffic sign in Tesla Cybertruck leaving Nobu",
+        "sm_api_content": "Elon Musk took Tesla's new Cybertruck out for a spin in Los Angeles on Saturday. During his drive, he took out a traffic pylon and made some other questionable driving decisions. A video published by TMZ showed the billionaire mowing down a \"Right turn only\" sign while turning left out of Nobu, a sushi restaurant in Malibu. To be sure, the sign did not appear to be on the road and instead seemed to be private traffic management for the restaurant's parking lot, given that the driveway is next to a traffic light. In the video, the light turns green for cross-traffic as Musk exits the parking lot.",
+        "sm_api_limitation": "Waited 0 extra seconds due to API Free mode, 99 requests left to make for today."
+      }
     }
   }
 }

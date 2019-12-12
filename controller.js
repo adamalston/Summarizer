@@ -13,20 +13,20 @@ function loggedInFeatures() {
     $("#logoutButton").show();
     $("#redirSignupButton").hide();
     $("#redirLoginButton").hide();
-    $("#saveSmmryButton").show();
+    // $("#saveSmmryButton").show();
     $("#deleteAccountButton").show();
     $("#notesSection").show();
-    $("#saveSection").show();
+    // $("#saveSection").show();
 }
 
 function loggedOutFeatures() {
     $("#logoutButton").hide();
     $("#redirSignupButton").show();
     $("#redirLoginButton").show();
-    $("#saveSmmryButton").hide();
+    // $("#saveSmmryButton").hide();
     $("#deleteAccountButton").hide();
     $("#notesSection").hide();
-    $("#saveSection").hide();
+    // $("#saveSection").hide();
 }
 
 function addButtonListeners() {
@@ -103,9 +103,9 @@ function addButtonListeners() {
         }, 250);
     });
 
-    //     $("#saveSmmryButton").on('click', () => {
-    //         saveSmmry();
-    //     });
+    // $("#saveSmmryButton").on('click', () => {
+    //     saveSmmry();
+    // });
 
     $("#deleteAccountButton").on('click', () => {
         $("#deleteAccountButton").toggleClass('is-loading');
@@ -161,14 +161,24 @@ async function postLogin() {
     }
 }
 
-// function saveSmmry() {
-//     try {
-//         const result = await accountRoot.post(`/user`,{
+// async function saveSmmry() {
+//     try {
+        
+//         let jwt = localStorage.getItem("jwt");
+//         let res = await userRoot.post('/ids',
+//             {
+//                 "data": [`${id}`],
+//                 "type": "merge",
+//             },
+//             {
+//                 headers: {
+//                     Authorization: "Bearer " + jwt,
+//                 }
+//             }
+//         );
+//     } catch (error) {
 
-//         });
-//     } catch (error) {
-
-//     }
+//     }
 // }
 
 async function deleteAccount() {
@@ -223,16 +233,12 @@ async function summarize() {
 
     let testerFun = async function (id) {
         try {
-            console.log(id);
             let smmryObj = await getSummaryObject(id);
             if (smmryObj === undefined) throw "smmryObj undefined";
-            console.log(smmryObj);
             let title = smmryObj.data.sm_api_title;
             let body = smmryObj.data.sm_api_content;
             let url = smmryObj.url;
-            populateMain(smmryObj);
             let username = await checkStatus();
-            console.log(username);
             if (username === undefined) {
                 let res = await publicRoot.post('/ids', {
                     "data": `${id}`,
@@ -240,7 +246,6 @@ async function summarize() {
                 });
             } else {
                 let jwt = localStorage.getItem("jwt");
-                console.log("reached private/user posts")
                 let res = await privateRoot.post('/ids',
                     {
                         "data": `${id}`,
@@ -255,7 +260,10 @@ async function summarize() {
                 console.log(res);
                 res = await userRoot.post(`/ids`,
                     {
-                        "data": [`${id}`],
+                        "data": [{
+                            "data": `${id}`,
+                            "notes": "",
+                        }],
                         "type": "merge",
                     },
                     {
@@ -287,9 +295,37 @@ async function getSummaryObject(id) {
 
 // async postToStore
 
-function populateMain(object) {
-    console.log(object);
-    let smmry = object;
+async function populateMain(username) {
+    let smmry, obj, notes;
+    if (username === undefined) {
+        const result = await publicRoot.get('/ids');
+        let ids = result.data.result;
+        let index = Math.floor((Math.random() * (ids.length)));
+        obj = ids;
+        notes = undefined;
+        console.log(ids);
+        smmry = await getSummaryObject(ids[index]);
+    } else {
+        let jwt = localStorage.getItem("jwt");
+        const result = await userRoot.get(`/ids`, {
+            headers: {
+                Authorization: "Bearer " + jwt,
+            },
+        });
+        console.log(result);
+        obj = result.data.result;
+        
+        console.log(obj);
+        let id = obj[obj.length - 1].data;
+        notes = obj[obj.length - 1].notes;
+        console.log(notes);
+        smmry = await getSummaryObject(id);
+    }
+    if (notes === undefined) {
+        notes = '';
+    } else {
+        notes = "User Note: " + notes;
+    }
     let title = smmry.data.sm_api_title;
     let content = smmry.data.sm_api_content;
     let source = smmry.url;
@@ -298,14 +334,21 @@ function populateMain(object) {
             <h4 class="has-text-centered" id="title">${title}</h4>
             <p id="content">${content}</p>
             <p><a href="${source}" id="source">${source}</a></p>
+            <p>${notes}</p>
         </div>`;
     $("#mainContent").remove();
     $("#mainCard").append($(smmryMarkup));
+    populateSecondaries(obj);
 }
 
 async function populateSecondaries(array) {
     console.log(array);
-    let secondaryMarkup = (title, source, link) => {
+    let secondaryMarkup = (title, source, link, notes, id) => {
+        if (notes != '') {
+            notes = `User Note: <br>${notes}`;
+        } else {
+            notes = '';
+        }
         return `
         <div class="column is-4 secondaries">
             <div class="card">
@@ -313,18 +356,68 @@ async function populateSecondaries(array) {
                     <div class="content">
                         <h4 id="title">${title}</h4>
                         <p><a id="source" href="${source}">${link}</a></p>
+                        <p>${notes}</p>
+                        <div class="control">
+                            <a class="button" id="${id}">View</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>`
     }
     $(".secondaries").remove();
+    
     for (let i = array.length - 1; i >= 0; i--) {
-        let smmry = await getSummaryObject(array[i]);
+        let notes, id, smmry;
+        let userObj = array[i];
+        if (userObj.notes === undefined) {
+            notes = '';
+            id = userObj;
+            smmry = await getSummaryObject(userObj);
+        } else {
+            id = userObj.data;
+            smmry = await getSummaryObject(userObj.data);
+            notes = userObj.notes;
+        }
+        console.log(notes);
         let title = smmry.data.sm_api_title;
+        let content = smmry.data.sm_api_content;
         let source = smmry.url;
         let link = source.split('/')[0];
-        $("#mainColumn").append($(secondaryMarkup(title, source, link)));
+        $("#mainColumn").append($(secondaryMarkup(title, source, link, notes, id)));
+        
+    }
+    for (let i = array.length - 1; i >= 0; i--) {
+        let notes, id, smmry;
+        let userObj = array[i];
+        if (userObj.notes === undefined) {
+            notes = '';
+            id = userObj;
+            smmry = await getSummaryObject(userObj);
+        } else {
+            id = userObj.data;
+            smmry = await getSummaryObject(userObj.data);
+            if (userObj.notes == '') {
+                notes = userObj.notes;
+            } else {
+                notes = "User Note: " + userObj.notes;
+            }
+        }
+        console.log(notes);
+        let title = smmry.data.sm_api_title;
+        let content = smmry.data.sm_api_content;
+        let source = smmry.url;
+        $(`#${id}`).on('click', () => {
+            let smmryMarkup = `
+                <div class="content" id="mainContent">
+                    <h4 class="has-text-centered" id="title">${title}</h4>
+                    <p id="content">${content}</p>
+                    <p><a href="${source}" id="source">${source}</a></p>
+                    <p>${notes}</p>
+                </div>`;
+            $("#mainContent").remove();
+            $("#mainCard").append($(smmryMarkup));
+        });
     }
 }
 
@@ -340,35 +433,6 @@ const userRoot = axios.create({
     baseURL: "http://localhost:3000/user"
 });
 
-async function loadSmmry(username) {
-    let smmry;
-    let obj;
-    if (username === undefined) {
-        const result = await publicRoot.get('/ids');
-        let ids = result.data.result;
-        let index = Math.floor((Math.random() * (ids.length)));
-        obj = ids;
-        console.log(ids);
-        smmry = await getSummaryObject(ids[index]);
-    } else {
-        let jwt = localStorage.getItem("jwt");
-        const result = await userRoot.get(`/ids`, {
-            headers: {
-                Authorization: "Bearer " + jwt,
-            },
-        });
-        console.log(result);
-        obj = result.data.result;
-        let id = obj[obj.length-1];
-        console.log(obj);
-        smmry = await getSummaryObject(id);
-    }
-    console.log(smmry);
-    populateMain(smmry);
-    populateSecondaries(obj);
-}
-
-
 let blinker = document.getElementById('blink');
 if (blinker != null) {
     setInterval(function () {
@@ -380,7 +444,7 @@ $(document).ready(async () => {
     hideElements();
     addButtonListeners();
     let username = await checkStatus();
-    loadSmmry(username);
+    populateMain(username);
     if (username != undefined) {
         loggedInFeatures();
     } else {

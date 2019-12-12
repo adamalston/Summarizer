@@ -17,21 +17,21 @@ router.post(`/id`, function (req, res) {
     url = url.replace(/^(https?:|)\/\//,'')
     let obj = smmryStore.get(`id`);
     let id = urlExists(url);
+    console.log(id)
     console.log("ID in obj: ",id in obj);
     if (!(id in obj)) {
         id = Math.max(...Object.keys(obj)) + 1;
         console.log("new smmry, id: ", id);
-        //getSmmry(url, id);
+        getSmmry(url, id);
     }
     res.send({"data": id});
   });
 
 router.post(`/getID`, function (req, res) {
-    let id = req.body.id.data;
-    console.log(req.body.id.data);
-    console.log("router.get req: ",req.body.id);
+    let id = req.body.id;
+    console.log(id);
     let data = smmryStore.get(`id.${id}`);
-    console.log(data);
+    console.log(data)
     res.send({"data": data});
 });
   

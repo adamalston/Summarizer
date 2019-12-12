@@ -15,6 +15,8 @@ function loggedInFeatures() {
     $("#redirLoginButton").hide();
     $("#saveSmmryButton").show();
     $("#deleteAccountButton").show();
+    $("#notesSection").show();
+    $("#saveSection").show();
 }
 
 function loggedOutFeatures() {
@@ -23,6 +25,8 @@ function loggedOutFeatures() {
     $("#redirLoginButton").show();
     $("#saveSmmryButton").hide();
     $("#deleteAccountButton").hide();
+    $("#notesSection").hide();
+    $("#saveSection").hide();
 }
 
 function addButtonListeners() {

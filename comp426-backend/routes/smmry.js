@@ -12,12 +12,12 @@ const smmryURL = axios.create({
 });
 
 router.post(`/id`, function (req, res) {
-    let url = req.body.url; 
+    let url = req.body.url;
     console.log(url);
     url = url.replace(/^(https?:|)\/\//,'')
     let obj = smmryStore.get(`id`);
     let id = urlExists(url);
-    console.log(id)
+    console.log(id);
     console.log("ID in obj: ",id in obj);
     if (!(id in obj)) {
         id = Math.max(...Object.keys(obj)) + 1;

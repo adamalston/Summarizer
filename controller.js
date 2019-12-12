@@ -103,9 +103,19 @@ function addButtonListeners() {
         }, 250);
     });
 
-    // $("#saveSmmryButton").on('click', () => {
-    //     saveSmmry();
+    // $("#attachNoteButton").on('click', () => {
+
+    //     $("#attachNoteButton").toggleClass('is-loading');
+
+    //     setTimeout(() => {
+    //         $("#attachNoteButton").removeClass('is-loading');
+    //         attachNote();
+    //     }, 250);
     // });
+
+    //     $("#saveSmmryButton").on('click', () => {
+    //         saveSmmry();
+    //     });
 
     $("#deleteAccountButton").on('click', () => {
         $("#deleteAccountButton").toggleClass('is-loading');
@@ -354,7 +364,7 @@ async function populateSecondaries(array) {
             <div class="card">
                 <div class="card-content">
                     <div class="content">
-                        <h4 id="title">${title}</h4>
+                        <h4 class="has-text-centered" id="title">${title}</h4>
                         <p><a id="source" href="${source}">${link}</a></p>
                         <p>${notes}</p>
                         <div class="control">
@@ -405,6 +415,7 @@ async function populateSecondaries(array) {
         }
         console.log(notes);
         let title = smmry.data.sm_api_title;
+        console.log(title);
         let content = smmry.data.sm_api_content;
         let source = smmry.url;
         $(`#${id}`).on('click', () => {

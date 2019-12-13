@@ -16,8 +16,7 @@ function loggedInFeatures() {
     // $("#saveSmmryButton").show();
     $("#deleteAccountButton").show();
     $("#notesSection").show();
-    // $("#userSummaries").hide();
-    // $("#privateSummaries").show();
+    $("#attachNoteButton").show();
     // $("#saveSection").show();
 }
 
@@ -28,7 +27,7 @@ function loggedOutFeatures() {
     // $("#saveSmmryButton").hide();
     $("#deleteAccountButton").hide();
     $("#notesSection").hide();
-    // $("#secondaryButtons").hide();
+    $("#secondaryButtons").hide();
     // $("#saveSection").hide();
 }
 
@@ -145,24 +144,26 @@ function addButtonListeners() {
     });
 
     $("#userSummaries").on('click', () => {
-        $("#userSummaries").toggleClass('is-loading');
+        event.preventDefault();
+        //$("#userSummaries").toggleClass('is-loading');
         setTimeout(async () => {
             let username = await checkStatus();
             populateMain(username);
-            $("#userSummaries").removeClass('is-loading');
+            //$("#userSummaries").removeClass('is-loading');
         }, 250);
+        $("#notesSection").show();
     });
 
     $("#privateSummaries").on('click', () => {
         event.preventDefault();
-        $("#privateSummaries").toggleClass('is-loading');
+        //$("#privateSummaries").toggleClass('is-loading');
         
         setTimeout(async () => {
             let username = await checkStatus();
             populatePrivate(username);
-            $("#privateSummaries").removeClass('is-loading');
+            //$("#privateSummaries").removeClass('is-loading');
         }, 250);
-        $("#attachNoteButton").hide();
+        $("#notesSection").hide();
     });
 }
 
@@ -473,6 +474,8 @@ async function populatePrivate(username) {
             $("#mainCard").append($(smmryMarkup));
         });
     }
+    $("#userSummaries").show();
+    $("#privateSummaries").hide();
 }
 
 async function populateSecondaries(array) {
@@ -555,6 +558,8 @@ async function populateSecondaries(array) {
             $("#mainCard").append($(smmryMarkup));
         });
     }
+    $("#userSummaries").hide();
+    $("#privateSummaries").show();
 }
 
 const publicRoot = axios.create({

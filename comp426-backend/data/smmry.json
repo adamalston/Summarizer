@@ -89,6 +89,43 @@
         "sm_api_content": "Elon Musk took Tesla's new Cybertruck out for a spin in Los Angeles on Saturday. During his drive, he took out a traffic pylon and made some other questionable driving decisions. A video published by TMZ showed the billionaire mowing down a \"Right turn only\" sign while turning left out of Nobu, a sushi restaurant in Malibu. To be sure, the sign did not appear to be on the road and instead seemed to be private traffic management for the restaurant's parking lot, given that the driveway is next to a traffic light. In the video, the light turns green for cross-traffic as Musk exits the parking lot.",
         "sm_api_limitation": "Waited 0 extra seconds due to API Free mode, 99 requests left to make for today."
       }
+    },
+    "9": {
+      "url": "www.reuters.com/investigates/special-report/hongkong-protests-media/",
+      "data": {
+        "sm_api_character_count": "868",
+        "sm_api_content_reduced": "89%",
+        "sm_api_title": "Refinitiv used filter to block Reuters reports on Hong Kong protests",
+        "sm_api_content": "Reuters reported in June that Refinitiv had blocked several Reuters stories under government pressure. In late July, Refinitiv asked Reuters to review an article that detailed how a Chinese government representative in Hong Kong had urged local residents to drive off protesters, just a week before a violent clash broke out between pro- and anti-government crowds in the area. Refinitiv employees also discussed by email whether the \"Restricted News\" code should be China-specific or \"Generic,\" so it could be used to block stories in other countries in the future. Refinitiv's blocking of protest stories intensified after Aug. 30, when Reuters reported that Beijing had rejected a bid by Hong Kong leader Lam to compromise with the protesters. On Dec. 3, Refinitiv blocked a Xinhua story about a small demonstration in Hong Kong by pro-Beijing residents.",
+        "sm_api_limitation": "Waited 0 extra seconds due to API Free mode, 96 requests left to make for today."
+      }
+    },
+    "10": {
+      "url": "en.wikipedia.org/wiki/World_Wide_Web",
+      "data": {
+        "sm_api_character_count": "877",
+        "sm_api_content_reduced": "98%",
+        "sm_api_title": "World Wide Web",
+        "sm_api_content": "The World Wide Web Consortium's timeline says December 1992, whereas SLAC itself claims December 1991, as does a W3C document titled A Little History of the World Wide Web. In Mandarin Chinese, World Wide Web is commonly translated via a phono-semantic matching to wàn wéi wǎng, which satisfies www and literally means \"Myriad dimensional net\", a translation that reflects the design concept and proliferation of the World Wide Web. A web page is a document that is suitable for the World Wide Web and web browsers. A web search engine or Internet search engine is a software system that is designed to carry out web search, which means to search the World Wide Web in a systematic way for particular information specified in a web search query. The deep web, invisible web, or hidden web are parts of the World Wide Web whose contents are not indexed by standard web search engines.",
+        "sm_api_limitation": "Waited 0 extra seconds due to API Free mode, 93 requests left to make for today."
+      }
+    },
+    "11": {
+      "url": "codehandbook.org/how-to-make-rest-api-calls-in-express-web-app/",
+      "data": {
+        "sm_api_character_count": "499",
+        "sm_api_content_reduced": "85%",
+        "sm_api_title": "How To Make REST API Calls In Express Web App",
+        "sm_api_content": "In this tutorial, you'll learn how to make REST API calls in express web app. Get('/getAPIResponse', (req, res) => ). You'll be making use of the request client to make REST API calls in express. Make an API call to the REST API https://jsonplaceholder. API helper') const app = express() const port = 3000 /* * Route to DEMO the API call to a REST API Endpoint * REST URL : https://jsonplaceholder. Wrapping It Up. In this tutorial, you saw how to make REST API calls in express web app.",
+        "sm_api_limitation": "Waited 0 extra seconds due to API Free mode, 92 requests left to make for today."
+      }
+    },
+    "12": {
+      "url": "comp426.com/",
+      "data": {
+        "sm_api_error": 3,
+        "sm_api_message": "THE PAGE IS IN AN UNRECOGNISABLE FORMAT"
+      }
     }
   }
 }

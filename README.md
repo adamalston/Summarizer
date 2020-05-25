@@ -12,7 +12,9 @@ We think our app will be useful for anyone consuming news via the web.
 
 Summarizer is designed to be simple and intuitive. We anticipate many people will be using the app at night right before bedtime so it should also be easy on the eyes.
 
-![Screenshot](logos/screenshot.png)
+<p align="center">
+  <img src="logos/screenshot.png">
+</p>
 
 ## Functionality
 

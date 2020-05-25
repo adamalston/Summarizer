@@ -83,6 +83,16 @@
     color: white;
 }
 
+#secondaryButtons {
+    padding-top: 1rem;
+}
+
+#userSummaries, #privateSummaries {
+    background-color: black;
+    border-color: white;
+    color: white;
+}
+
 #title, #content {
     color: white;
 }

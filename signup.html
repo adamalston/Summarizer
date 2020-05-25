@@ -1,87 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sign Up</title>
-        <link rel="shortcut icon" href="logos/logo.png" type="image/x-icon">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-        <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
-        <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        <script src="/node_modules/axios/dist/axios.min.js"></script>
-        <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-        <script type="module" src="controller.js"></script>
-    </head>
-    <body>
-        <div id="root">
 
-            <div class="hero is-dark is-bold">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="index.html">
-                        <img src="logos/logo.png" width="32" height="32">
-                    </a>
-                </div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+    <link rel="shortcut icon" href="logos/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="/node_modules/axios/dist/axios.min.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="module" src="controller.js"></script>
+</head>
 
-                <div class="hero-body">                 
-                    <div class="columns is-centered">
-                        <div class="column is-three-quarters">
-                            <div class="notification">
-                                <header class="signup-header">
-                                    <h1 class="title has-text-centered">Welcome to <img class="" src="logos/resizedLogo.png" width="64" height="64" alt="Summarizer Logo" style="vertical-align:middle">ummarizer</h1>
-                                    <p class="subtitle has-text-centered">Create a Summarizer account by filling out this form</p>
-                                    <br>
-                                </header>
-                                
-                                <div class="field">
-                                    <label class="label">First Name</label>
-                                    <div class="control has-icons-left">
-                                        <input class="input" type="text" placeholder="First Name" id="firstname">
-                                        <span class="icon is-small is-left">
-                                            <i class="fas fa-user"></i>
-                                        </span>
-                                    </div>
+<body>
+    <div id="root">
+
+        <div class="hero is-dark is-bold">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <img src="logos/logo.png" width="32" height="32">
+                </a>
+            </div>
+
+            <div class="hero-body">
+                <div class="columns is-centered">
+                    <div class="column is-three-quarters">
+                        <div class="notification">
+                            <header class="signup-header">
+                                <h1 class="title has-text-centered">Welcome to <img class="" src="logos/resizedLogo.png" width="64" height="64" alt="Summarizer Logo" style="vertical-align:middle">ummarizer</h1>
+                                <p class="subtitle has-text-centered">Create a Summarizer account by filling out this form</p>
+                                <br>
+                            </header>
+
+                            <div class="field">
+                                <label class="label">First Name</label>
+                                <div class="control has-icons-left">
+                                    <input class="input" type="text" placeholder="First Name" id="firstname">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-user"></i>
+                                    </span>
                                 </div>
+                            </div>
 
-                                <div class="field">
-                                    <label class="label">Last Name</label>
-                                    <div class="control has-icons-left">
-                                        <input class="input" type="text" placeholder="Last Name" id="lastname">
-                                        <span class="icon is-small is-left">
-                                            <i class="fas fa-user"></i>
-                                        </span>
-                                    </div>
+                            <div class="field">
+                                <label class="label">Last Name</label>
+                                <div class="control has-icons-left">
+                                    <input class="input" type="text" placeholder="Last Name" id="lastname">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-user"></i>
+                                    </span>
                                 </div>
+                            </div>
 
-                                <div class="field">
-                                    <label class="label">Username</label>
-                                    <div class="control has-icons-left">
-                                        <input class="input" type="text" placeholder="New Username" id="newName">
-                                        <span class="icon is-small is-left">
-                                            <i class="fas fa-id-badge"></i>
-                                        </span>
-                                    </div>
-                                    <p class="signupError help">Unable to create account. Try a different username.</p>
+                            <div class="field">
+                                <label class="label">Username</label>
+                                <div class="control has-icons-left">
+                                    <input class="input" type="text" placeholder="New Username" id="newName">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-id-badge"></i>
+                                    </span>
                                 </div>
-                                
-                                <div class="field">
-                                    <label class="label">Password</label>
-                                    <div class="control has-icons-left">
-                                        <input class="input" type="password" placeholder="New Password" id="newPass">
-                                        <span class="icon is-small is-left">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </div>
-                                </div>
+                                <p class="signupError help">Unable to create account. Try a different username.</p>
+                            </div>
 
-                                <div class="field is-grouped">
-                                    <div class="control">
-                                        <button class="button" type="submit" id="signupButton">Create Account</button>
-                                    </div>
-                                    <div class="control">
-                                        <a class="button" href="login.html" id="redirLoginButton"><span>Already have an account? Log in</span></a>
-                                    </div>
+                            <div class="field">
+                                <label class="label">Password</label>
+                                <div class="control has-icons-left">
+                                    <input class="input" type="password" placeholder="New Password" id="newPass">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <button class="button" type="submit" id="signupButton">Create Account</button>
+                                </div>
+                                <div class="control">
+                                    <a class="button" href="login.html" id="redirLoginButton"><span>Already have an account? Log in</span></a>
                                 </div>
                             </div>
                         </div>
@@ -89,5 +90,7 @@
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

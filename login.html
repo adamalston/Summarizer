@@ -1,79 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Log In</title>
-        <link rel="shortcut icon" href="logos/logo.png" type="image/x-icon">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-        <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
-        <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        <script src="/node_modules/axios/dist/axios.min.js"></script>
-        <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-        <script type="module" src="controller.js"></script>
-    </head>
-    <body>
-        <div id="root">
 
-            <div class="hero is-dark is-bold fullheight-hero">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="index.html">
-                        <img src="logos/logo.png" width="32" height="32">
-                    </a>
-                </div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log In</title>
+    <link rel="shortcut icon" href="logos/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="/node_modules/axios/dist/axios.min.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="module" src="controller.js"></script>
+</head>
 
-                <div class="hero-body">   
-                    <header class="hero-head login-header">
-                        <h1 class="title has-text-centered">Welcome to <img class="" src="logos/resizedLogo.png" width="64" height="64" alt="Summarizer Logo" style="vertical-align:middle">ummarizer</h1>
-                        <p class="subtitle has-text-centered">Log In</p>
-                        <br>
-                    </header>
+<body>
+    <div id="root">
 
-                    <div class="columns is-centered">
-                        <div class="column is-three-quarters">
-                            <div class="notification">
+        <div class="hero is-dark is-bold fullheight-hero">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <img src="logos/logo.png" width="32" height="32">
+                </a>
+            </div>
 
-                                
-                                <div class="field">
-                                    <label class="label">Username</label>
-                                    <p class="control has-icons-left">
-                                        <input class="input" type="text" placeholder="Username" id="name">
-                                        <span class="icon is-small is-left">
-                                            <i class="fas fa-id-badge"></i>
-                                        </span>
-                                    </p>
-                                </div>
-                                
-                                <div class="field">
-                                    <label class="label">Password</label>
-                                    <p class="control has-icons-left">
-                                        <input class="input" type="password" placeholder="Password" id="pass">
-                                        <span class="icon is-small is-left">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </p>
-                                    <p class="loginError help">Unable to log in. Incorrect username or password.</p>
-                                </div>
-                                
-                                <div class="field is-grouped">
-                                    <div class="control">
-                                        <button class="button" type="submit" id="loginButton">Log in</button>
-                                    </div>
-                                    <div class="control">
-                                        <a class="button" href="signup.html" id="redirSignupButton"><span>First time? Create an account</span></a>
-                                    </div>
-                                </div>
+            <div class="hero-body">
+                <header class="hero-head login-header">
+                    <h1 class="title has-text-centered">Welcome to <img class="" src="logos/resizedLogo.png" width="64" height="64" alt="Summarizer Logo" style="vertical-align:middle">ummarizer</h1>
+                    <p class="subtitle has-text-centered">Log In</p>
+                    <br>
+                </header>
 
+                <div class="columns is-centered">
+                    <div class="column is-three-quarters">
+                        <div class="notification">
+
+
+                            <div class="field">
+                                <label class="label">Username</label>
+                                <p class="control has-icons-left">
+                                    <input class="input" type="text" placeholder="Username" id="name">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-id-badge"></i>
+                                    </span>
+                                </p>
                             </div>
+
+                            <div class="field">
+                                <label class="label">Password</label>
+                                <p class="control has-icons-left">
+                                    <input class="input" type="password" placeholder="Password" id="pass">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </p>
+                                <p class="loginError help">Unable to log in. Incorrect username or password.</p>
+                            </div>
+
+                            <div class="field is-grouped">
+                                <div class="control">
+                                    <button class="button" type="submit" id="loginButton">Log in</button>
+                                </div>
+                                <div class="control">
+                                    <a class="button" href="signup.html" id="redirSignupButton"><span>First time? Create an account</span></a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="hero-foot">
+                </div>
+                <div class="hero-foot">
 
-                    </div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

@@ -1,0 +1,26 @@
+{
+  "name": "comp426-backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev-live-reload": "cross-env DEBUG=server,auto-wire,auto-wire-warning,auto-data nodemon --ignore 'data/' -r esm bin/server.js",
+    "dev-static": "cross-env DEBUG=server,auto-wire,auto-wire-warning,auto-data node -r esm bin/server.js",
+    "prod": "cross-env DEBUG=server node -r esm bin/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "cross-env": "^6.0.3",
+    "data-store": "^3.1.0",
+    "debug": "~2.6.9",
+    "dotenv": "^8.1.0",
+    "escape-string-regexp": "^2.0.0",
+    "esm": "^3.2.25",
+    "express": "~4.16.1",
+    "express-bearer-token": "^2.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "~1.9.1",
+    "nodemon": "^1.19.2"
+  }
+}

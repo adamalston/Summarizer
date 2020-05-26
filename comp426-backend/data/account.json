@@ -1,0 +1,39 @@
+{
+  "users": {
+    "test": {
+      "passwordHash": "$2a$10$0tM5xeUUpWfp8eN4N3Tjt.np5P1pRo8nVXJ7XBZPpUNdgWguuMsge",
+      "data": {
+        "firstname": "Adam",
+        "lastname": "Alston"
+      }
+    },
+    "testing": {
+      "passwordHash": "$2a$10$au0e0cvz40RXgsRCMkOHYOZdRuFNMfBthSfErsXtHHSdGs0Bv1mIO",
+      "data": {
+        "firstname": "Adam",
+        "lastname": "Alston"
+      }
+    },
+    "newaccount": {
+      "passwordHash": "$2a$10$0zIckSIh11ALQ2qcAyQHbeTIUF6DbriMQOXUbbWT1aRMroIbd8w5G",
+      "data": {
+        "firstname": "new",
+        "lastname": "account"
+      }
+    },
+    "ericf97": {
+      "passwordHash": "$2a$10$/oIgaaGLSnRNuT8RNyXSuOEIMrJf42RSOOu3RD/Sw8qbSm1Uq1z/q",
+      "data": {
+        "firstname": "eric",
+        "lastname": "floyd"
+      }
+    },
+    "adam": {
+      "passwordHash": "$2a$10$sDdc/2V9ne.7dR2k2ZrAfeMG6bpaY7i3VOF6fjWHHiW55OgaXoh3W",
+      "data": {
+        "firstname": "Adam",
+        "lastname": "Alston"
+      }
+    }
+  }
+}

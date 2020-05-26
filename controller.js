@@ -157,7 +157,7 @@ function addButtonListeners() {
     $("#privateSummaries").on('click', () => {
         event.preventDefault();
         //$("#privateSummaries").toggleClass('is-loading');
-        
+
         setTimeout(async () => {
             let username = await checkStatus();
             populatePrivate(username);
@@ -425,7 +425,7 @@ async function populatePrivate(username) {
                     <div class="content">
                         <h4 id="title">${title}</h4>
                         <p><a id="source" href="${source}">${link}</a></p>
-                        <div class="control">
+                        <div class="field has-addons has-addons-centered">
                             <a class="button" id="${id}">View</a>
                         </div>
                     </div>
@@ -494,7 +494,7 @@ async function populateSecondaries(array) {
                         <h4 class="has-text-centered" id="title">${title}</h4>
                         <p><a id="source" href="${source}">${link}</a></p>
                         <p>${notes}</p>
-                        <div class="control">
+                        <div class="field has-addons has-addons-centered">
                             <a class="button" id="${id}">View</a>
                         </div>
                     </div>
@@ -598,10 +598,10 @@ $(document).ready(async () => {
 // check status when someone logged in show buttons
 // make logout dissapear when not logged in
 // separate view source from signup and login
+// create functions to populate main and secondaries
+// when adding to userStore, add note functionality
 
 // --todo
-// create functions to populate main (done) and secondary SMMRY cards (not done)
-// when adding to userStore, add note functionality
 // fix the summarizeError
 
 // api data

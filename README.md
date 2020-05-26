@@ -18,7 +18,7 @@ Summarizer is designed to be simple and intuitive. We anticipate many people wil
 
 ## Functionality
 
-Summarizer starts by prompting you to sign up and login. Once done, you can start summarizing! Simply paste a URL into the textbox and press Summarize. A summary of the article will be generated and shown below. The app will then store the summary in a database for later viewing. You can choose to attach a note to a summary if you wish.
+Summarizer starts by prompting you to sign up and login. Once done, you can start summarizing! Simply paste a URL into the textbox and press Summarize. A summary of the article will be generated and shown below. The app will then store the summary in a database for later viewing. You can choose to attach a note to the summary if you wish.
 
 Enjoy!
 

@@ -1,109 +1,112 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Summarizer</title>
-        <link rel="shortcut icon" href="logos/logo.png" type="image/x-icon">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-        <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
-        <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        <script src="/node_modules/axios/dist/axios.min.js"></script>
-        <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-        <script type="module" src="controller.js"></script>
-    </head>
-    <body>
-        <section class="hero is-dark is-small is-bold">
-            <div class="hero-head">
-                <nav class="navbar" role="navigation" aria-label="main navigation">
-                    <div class="navbar-brand">
-                        <a class="navbar-item" href="index.html">
-                            <img src="logos/logo.png" width="32" height="32">
-                        </a>
-                        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
-                            <span aria-hidden="true" id="bars"></span>
-                            <span aria-hidden="true" id="bars"></span>
-                            <span aria-hidden="true" id="bars"></span>
-                        </a>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Summarizer</title>
+    <link rel="shortcut icon" href="logos/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="/node_modules/axios/dist/axios.min.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="module" src="controller.js"></script>
+</head>
+
+<body>
+    <section class="hero is-dark is-small is-bold">
+        <div class="hero-head">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="index.html">
+                        <img src="logos/logo.png" width="32" height="32">
+                    </a>
+                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
+                        <span aria-hidden="true" id="bars"></span>
+                        <span aria-hidden="true" id="bars"></span>
+                        <span aria-hidden="true" id="bars"></span>
+                    </a>
+                </div>
+                <div id="mainNavbar" class="navbar-menu">
+                    <div class="navbar-start">
+
                     </div>
-                    <div id="mainNavbar" class="navbar-menu">
-                        <div class="navbar-start">
- 
-                        </div>
-                        <div class="navbar-end">
-                            <div class="navbar-item">
-                                <div class="buttons level-right">
-                                    <a class="button" id="redirSignupButton"><span><i class="fas fa-user-plus"></i> Sign Up</span></a>
-                                    <a class="button" id="redirLoginButton"><span><i class="fas fa-sign-in-alt"></i> Log In</span></a>
-                                    <a class="button" id="logoutButton"><span><i class="fas fa-sign-out-alt"></i> Logout</span></a>
-                                    <a class="button" id="deleteAccountButton"><span><i class="fas fa-trash"></i> Delete Account</span></a>
-                                    <a class="button" id="redirGithubButton"><span><i class="fas fa-code"></i> View Source</span></a>
-                                </div>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons level-right">
+                                <a class="button" id="redirSignupButton"><span><i class="fas fa-user-plus"></i> Sign Up</span></a>
+                                <a class="button" id="redirLoginButton"><span><i class="fas fa-sign-in-alt"></i> Log In</span></a>
+                                <a class="button" id="logoutButton"><span><i class="fas fa-sign-out-alt"></i> Logout</span></a>
+                                <a class="button" id="deleteAccountButton"><span><i class="fas fa-trash"></i> Delete Account</span></a>
+                                <a class="button" id="redirGithubButton"><span><i class="fas fa-code"></i> View Source</span></a>
                             </div>
                         </div>
                     </div>
-                </nav>
-            </div>
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                    <h1 class="title"><img src="logos/resizedLogo.png" width="128" height="128" style="vertical-align:middle">ummarizer</h1>
-                    <div class="subtitle "id="tldr">
-                        <h1>tl;dr <span id="blink">|</span></h1>
-                    </div>
                 </div>
-            </div>
-        </section>
-
-        <div class="box">
-            <div class="field has-addons has-addons-centered">
-                <div class="control has-icons-left is-expanded">
-                    <input class="input" type="text" placeholder="URL" id="url">
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-link"></i>
-                    </span>
-                </div>
-
-                <div class="control">
-                    <a class="button" id="summarizeButton">Summarize</a>
-                </div>
-            </div>
-            <p class="summarizeError help">Unable to create summary. Try a different URL.</p>
+            </nav>
         </div>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title"><img src="logos/resizedLogo.png" width="128" height="128" style="vertical-align:middle">ummarizer</h1>
+                <div class="subtitle " id="tldr">
+                    <h1>tl;dr <span id="blink">|</span></h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="container">
-            <div class="columns features is-multiline" id="mainColumn">
-                <div class="column is-12">
-                    <div class="card">
-                        <div class="card-content" id="mainCard">
-                            <div class="content" id="mainContent">
-                            </div>
-                        </div>
-                        <div class="field has-addons has-addons-centered" id="notesSection">
-                            <div class="control has-icons-left is-expanded">
-                                <input class="input is-rounded is-small" type="text" placeholder="Add a note" id="note">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-sticky-note"></i>
-                                </span>
-                            </div>
-                            <div class="control">
-                                <a class="button is-rounded is-small" value="asodijfoij" id="attachNoteButton">Attach Note</a>
-                            </div>
-                        </div>
+    <div class="box">
+        <div class="field has-addons has-addons-centered">
+            <div class="control has-icons-left is-expanded">
+                <input class="input" type="text" placeholder="URL" id="url">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-link"></i>
+                </span>
+            </div>
 
-                        <!--<div class="field has-addons has-addons-centered" id="saveSection">
+            <div class="control">
+                <a class="button" id="summarizeButton">Summarize</a>
+            </div>
+        </div>
+        <p class="summarizeError help">Unable to create summary. Try a different URL.</p>
+    </div>
+
+    <section class="container">
+        <div class="columns features is-multiline" id="mainColumn">
+            <div class="column is-12">
+                <div class="card">
+                    <div class="card-content" id="mainCard">
+                        <div class="content" id="mainContent">
+                        </div>
+                    </div>
+                    <div class="field has-addons has-addons-centered" id="notesSection">
+                        <div class="control has-icons-left is-expanded">
+                            <input class="input is-rounded is-small" type="text" placeholder="Add a note" id="note">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-sticky-note"></i>
+                            </span>
+                        </div>
+                        <div class="control">
+                            <a class="button is-rounded is-small" value="" id="attachNoteButton">Attach Note</a>
+                        </div>
+                    </div>
+
+                    <!--<div class="field has-addons has-addons-centered" id="saveSection">
                             <div class="control">
                                 <a class="button is-rounded is-small is-info" id="saveButton">Save</a>
                             </div>
                         </div>-->
-                    </div>
-                    <div class="" id="secondaryButtons">
-                        <a class="button" id="userSummaries">Switch to my Summaries</a>
-                        <a class="button" id="privateSummaries">Switch to all Private Summaries</a>
-                    </div>
+                </div>
+                <div class="field has-addons has-addons-centered" id="secondaryButtons">
+                    <a class="button" id="userSummaries">Switch to my Summaries</a>
+                    <a class="button" id="privateSummaries">Switch to all Private Summaries</a>
                 </div>
             </div>
-        </section>
-    </body>
+        </div>
+    </section>
+</body>
+
 </html>

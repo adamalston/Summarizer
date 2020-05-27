@@ -1,8 +1,5 @@
-// api key 9720744B0C
-/**
- * How to make an API request to SMMRY
- */
-
+// add buttons and change their appearance
+// based on if the user is logged in or not
 function hideElements() {
     $(".signupError").hide();
     $(".loginError").hide();
@@ -13,10 +10,10 @@ function loggedInFeatures() {
     $("#logoutButton").show();
     $("#redirSignupButton").hide();
     $("#redirLoginButton").hide();
-    // $("#saveSmmryButton").show();
     $("#deleteAccountButton").show();
     $("#notesSection").show();
     $("#attachNoteButton").show();
+    // $("#saveSmmryButton").show();
     // $("#saveSection").show();
 }
 
@@ -24,10 +21,10 @@ function loggedOutFeatures() {
     $("#logoutButton").hide();
     $("#redirSignupButton").show();
     $("#redirLoginButton").show();
-    // $("#saveSmmryButton").hide();
     $("#deleteAccountButton").hide();
     $("#notesSection").hide();
     $("#secondaryButtons").hide();
+    // $("#saveSmmryButton").hide();
     // $("#saveSection").hide();
 }
 
@@ -96,7 +93,6 @@ function addButtonListeners() {
     });
 
     $("#summarizeButton").on('click', () => {
-
         $("#summarizeButton").toggleClass('is-loading');
 
         setTimeout(() => {
@@ -106,7 +102,6 @@ function addButtonListeners() {
     });
 
     // $("#attachNoteButton").on('click', () => {
-
     //     $("#attachNoteButton").toggleClass('is-loading');
 
     //     setTimeout(() => {
@@ -115,9 +110,9 @@ function addButtonListeners() {
     //     }, 250);
     // });
 
-    //     $("#saveSmmryButton").on('click', () => {
-    //         saveSmmry();
-    //     });
+    // $("#saveSmmryButton").on('click', () => {
+    //     saveSmmry();
+    // });
 
     $("#deleteAccountButton").on('click', () => {
         $("#deleteAccountButton").toggleClass('is-loading');
@@ -146,6 +141,7 @@ function addButtonListeners() {
     $("#userSummaries").on('click', () => {
         event.preventDefault();
         //$("#userSummaries").toggleClass('is-loading');
+        
         setTimeout(async () => {
             let username = await checkStatus();
             populateMain(username);
@@ -604,7 +600,7 @@ $(document).ready(async () => {
 // --todo
 // fix the summarizeError
 
-// api data
+// --api data
 // {"sm_api_character_count":"546","sm_api_content_reduced":"91%","sm_api_title":"Keyboard class action lawsuit against Apple should succeed",
 // "sm_api_content":"Scarcely a month goes by without a new class action lawsuit against Apple. The vast majority of them are frivolous, often absurd,
 // but there is one that deserves to succeed: the keyboard class action lawsuit over the failed butterfly design. The butterfly keyboard class action

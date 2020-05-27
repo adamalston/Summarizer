@@ -1,10 +1,12 @@
 # Summarizer
 
+![License](https://img.shields.io/github/license/adamalston/Summarizer)
+
 Summarizer is a web application that allows a user to summarize any online text composition whether that be a news article or a story.
 
-Time is of the essence to everyone. Shrinking the content in a news article by 75-99% can save users minutes or hours depending on how many articles they read in any given period. Many readers just want a quick summary highlighting the main ideas and the conclusion of the composition.
+Time is of the essence to everyone. Shrinking the content in an online article by 75-99% can save users minutes or hours depending on how many articles they read in any given period. Many readers want a quick summary highlighting the main ideas and the conclusion of the composition.
 
-There are also education and health benefits associated with shortening text and making the points of said text very evident. Further, many people have difficulty focusing for extended periods of time and Summarizer can offset some of that difficulty.
+There are also education and health benefits associated with shortening text and making the points of said text very evident. Many people have difficulty focusing for extended periods, and Summarizer can offset some of that difficulty.
 
 ## Frontend
 
@@ -22,12 +24,8 @@ Summarizer starts by prompting you to sign up and login. Once done, you can star
 
 ## Backend
 
-This project has a simple backend server that uses Express and data-store to act as a restful API.
+Summarizer has a simple backend server that uses Express and data-store to act as a restful API.
 
-A full custom route to the API was implemented in response to CORS errors. A side-effect of this custom route is that it improves the overall security of our app.
+A custom route to the API was implemented to eliminate CORS errors. A side effect of this custom route is that it improves the overall security of our app.
 
 Enjoy!
-
----
-
-![License](https://img.shields.io/github/license/adamalston/Summarizer)

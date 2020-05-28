@@ -1,6 +1,6 @@
 # Summarizer
 
-![License](https://img.shields.io/github/license/adamalston/Summarizer)
+[![License](https://img.shields.io/github/license/adamalston/Summarizer?color=blue)](LICENSE)
 
 Summarizer is a web application that allows a user to summarize any online text composition whether that be a news article or a story.
 
@@ -26,6 +26,6 @@ Summarizer starts by prompting you to sign up and login. Once done, you can star
 
 Summarizer has a simple backend server that uses Express and data-store to act as a restful API.
 
-A custom route to the API was implemented to eliminate CORS errors. A side effect of this custom route is that it improves the overall security of our app.
+A custom route to the API was implemented to eliminate CORS errors and ensure efficient storage in our backend. A side effect of this custom route is that it improves the overall security of our app.
 
 Enjoy!

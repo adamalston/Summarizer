@@ -8,6 +8,14 @@ Time is of the essence to everyone. Shrinking the content in an online article b
 
 There are also education and health benefits associated with shortening text and making the points of said text very evident. Many people have difficulty focusing for extended periods, and Summarizer can offset some of that difficulty.
 
+## Setup / Installation
+
+  1. Download or clone this repository: `https://github.com/adamalston/Summarizer.git`
+  2. Open a new shell in the comp426-backend directory
+  3. Run `npm install`
+  4. Start the server `npm run dev-live-reload`
+  5. Start the client `npx browser-sync start -sw `
+
 ## Frontend
 
 ### Design

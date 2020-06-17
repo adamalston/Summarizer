@@ -1,6 +1,6 @@
 # Summarizer
 
-[![License](https://img.shields.io/github/license/adamalston/Summarizer?color=blue)](LICENSE)
+[![License](https://img.shields.io/github/license/adamalston/Summarizer?color=009fff)](LICENSE)
 
 Summarizer is a web application that allows a user to summarize any online text composition whether that be a news article or a story.
 
@@ -14,7 +14,8 @@ There are also education and health benefits associated with shortening text and
   2. Open a new shell in the comp426-backend directory
   3. Run `npm install`
   4. Start the server `npm run dev-live-reload`
-  5. Start the client `npx browser-sync start -sw `
+  5. Open a new shell in the main project directory
+  6. Start the client `npx browser-sync start -sw `
 
 ## Frontend
 

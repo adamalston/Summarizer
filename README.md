@@ -12,10 +12,10 @@ There are also education and health benefits associated with shortening text and
 
   1. Download or clone this repository: `https://github.com/adamalston/Summarizer.git`
   2. Open a new shell in the comp426-backend directory
-  3. Run `npm install`
-  4. Start the server `npm run dev-live-reload`
+  3. Run: `npm install`
+  4. Start the server: `npm run dev-live-reload`
   5. Open a new shell in the main project directory
-  6. Start the client `npx browser-sync start -sw `
+  6. Start the client: `npx browser-sync start -sw `
 
 ## Frontend
 

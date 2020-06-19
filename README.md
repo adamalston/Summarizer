@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logos/resizedLogo.png" style="vertical-align:middle">ummarizer
+  <img src="logos/resizedLogo.png">
 </p>
 
 # Summarizer

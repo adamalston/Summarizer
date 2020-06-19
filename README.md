@@ -1,5 +1,5 @@
-<h1 align="center">
-  <img src="logos/resizedLogo.png" style="vertical-align:middle">ummarizer
+<h1  align="center">
+  <img src="logos/resizedLogo.png" style="vertical-align:middle;">ummarizer
 </h1>
 
 ---

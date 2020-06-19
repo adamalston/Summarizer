@@ -1,4 +1,8 @@
-# Summarizer
+<h1 align="center">
+  <img src="logos/resizedLogo.png" style="vertical-align:middle">ummarizer
+</h1>
+
+---
 
 [![License](https://img.shields.io/github/license/adamalston/Summarizer?color=009fff)](LICENSE)
 
@@ -10,12 +14,12 @@ There are also education and health benefits associated with shortening text and
 
 ## Setup / Installation
 
-  1. Download or clone this repository: `https://github.com/adamalston/Summarizer.git`
-  2. Run: `npm install`
-  3. Open a new shell in the comp426-backend directory
-  4. Start the server: `npm run dev-live-reload`
-  5. Open a new shell in the main project directory
-  6. Start the client: `npx browser-sync start -sw `
+1. Download or clone this repository: `https://github.com/adamalston/Summarizer.git`
+2. Run: `npm install`
+3. Open a new shell in the comp426-backend directory
+4. Start the server: `npm run dev-live-reload`
+5. Open a new shell in the main project directory
+6. Start the client: `npx browser-sync start -sw`
 
 ## Frontend
 
@@ -36,5 +40,7 @@ Summarizer starts by prompting you to sign up and login. Once done, you can star
 Summarizer has a simple backend server that uses Express and data-store to act as a restful API.
 
 A custom route to the API was implemented to eliminate CORS errors and ensure efficient storage in our backend. A side effect of this custom route is that it improves the overall security of our app.
+
+For more info about the backend, see the [server readme](comp426-backend/README.md).
 
 Enjoy!

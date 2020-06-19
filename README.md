@@ -1,8 +1,8 @@
-<h1  align="center">
-  <img src="logos/resizedLogo.png" style="vertical-align:middle;">ummarizer
-</h1>
+<p align="center">
+  <img src="logos/resizedLogo.png" style="vertical-align:middle">ummarizer
+</p>
 
----
+# Summarizer
 
 [![License](https://img.shields.io/github/license/adamalston/Summarizer?color=009fff)](LICENSE)
 

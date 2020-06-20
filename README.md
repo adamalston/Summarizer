@@ -4,7 +4,9 @@
 
 # Summarizer
 
-[![License](https://img.shields.io/github/license/adamalston/Summarizer?color=009fff)](LICENSE)
+[![License](https://img.shields.io/github/license/adamalston/Summarizer?color=009fff)](LICENSE) [![Known Vulnerabilities](https://snyk.io/test/github/adamalston/Summarizer/badge.svg)](https://snyk.io/test/github/adamalston/Summarizer)
+
+
 
 Summarizer is a web application that allows a user to summarize any online text composition whether that be a news article or a story.
 

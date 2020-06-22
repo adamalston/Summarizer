@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/adamalston/smmrzr#readme",
   "dependencies": {
-    "axios": "^0.19.0",
-    "bulma": "^0.8.0",
-    "cookie-parser": "^1.4.4",
+    "axios": "^0.19.2",
+    "bulma": "^0.8.2",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "debug": "^4.1.1",
     "express": "^4.17.1",
